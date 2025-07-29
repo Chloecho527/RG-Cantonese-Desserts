@@ -43,23 +43,4 @@ public class Menu : MonoBehaviour
 #endif
     }
 
-
-    /// <summary>
-    /// ///////////////////////////////////////
-    /// </summary>
-//public void StartNewGame()
-//    {
-
-//    }
-
-
-//    public void ContinueGame()  // ¶Áµµ
-//    {
-        
-//    }
-
-//    public void QuitGame()
-//    {
-//        Application.Quit();
-//    }
 }
