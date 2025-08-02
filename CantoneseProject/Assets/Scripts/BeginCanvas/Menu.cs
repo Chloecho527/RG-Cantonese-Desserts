@@ -14,8 +14,8 @@ public class Menu : MonoBehaviour
     [SerializeField] private Canvas startCanvas;
     [SerializeField] private Canvas infoCanvas;
     [SerializeField] private Canvas homeCanvas;
-    [SerializeField] private Canvas characterCanvas;
-    [SerializeField] private Canvas mapCanvas;
+    // [SerializeField] private Canvas characterCanvas;
+    [SerializeField] private Canvas selectCanvas;
     // [SerializeField] private Canvas remindCanvas;
 
 
@@ -31,8 +31,8 @@ public class Menu : MonoBehaviour
         startCanvas = startCanvasObj.GetComponent<Canvas>();
         infoCanvas = GameObject.Find("Info Canvas").GetComponent<Canvas>();
         homeCanvas = GameObject.Find("Home Canvas").GetComponent<Canvas>();
-        characterCanvas = GameObject.Find("Character Canvas").GetComponent<Canvas>();
-        mapCanvas = GameObject.Find("Map Canvas").GetComponent<Canvas>();
+        // characterCanvas = GameObject.Find("Character Canvas").GetComponent<Canvas>();
+        selectCanvas = GameObject.Find("Select Canvas").GetComponent<Canvas>();
 
         // ªÒ»°∞¥≈•
         newGameButton = startCanvasObj.transform.Find("NewGameBtn").GetComponent<Button>();
@@ -47,8 +47,8 @@ public class Menu : MonoBehaviour
     {
         infoCanvas.gameObject.SetActive(false);
         homeCanvas.gameObject.SetActive(false);
-        characterCanvas.gameObject.SetActive(false);
-        mapCanvas.gameObject.SetActive(false);
+        // characterCanvas.gameObject.SetActive(false);
+        selectCanvas.gameObject.SetActive(false);
 
     }
 

@@ -88,9 +88,6 @@ public class LoadManager : Singleton<LoadManager>
         {
             yield return SceneManager.UnloadSceneAsync("MenuScene");
         }
-        /////////////////////// 卸载菜单场景
-        //yield return SceneManager.UnloadSceneAsync("MenuScene");
-
 
         // 加载地图场景
         yield return SceneManager.LoadSceneAsync(mapSceneName, LoadSceneMode.Additive);

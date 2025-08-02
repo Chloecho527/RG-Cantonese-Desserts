@@ -30,7 +30,7 @@ public class InfoSkip : MonoBehaviour
     }
 
     /// <summary>
-    /// 跳过按钮点击事件，介绍canvas跳转到家canvas
+    /// 按钮点击事件，介绍canvas跳转到家canvas
     /// </summary>
     private void OnSkipBtnClicked()
     {
