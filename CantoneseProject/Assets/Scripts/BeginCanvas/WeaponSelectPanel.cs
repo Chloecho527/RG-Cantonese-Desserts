@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponSelectPanel : MonoBehaviour
+public class WeaponSelectPanel : Singleton<WeaponSelectPanel>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public CanvasGroup canvasGroup;
+    public Transform weaponDetails;
 
-    // Update is called once per frame
-    void Update()
+    protected override void Awake()
     {
-        
+        canvasGroup = this.gameObject.GetComponent<CanvasGroup>();
+        Debug.Log(canvasGroup);
+        weaponDetails = GameObject.Find("WeaponDetails").transform;
     }
 }

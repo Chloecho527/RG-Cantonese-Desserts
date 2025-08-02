@@ -11,7 +11,7 @@ public class Home : MonoBehaviour
 {
     [SerializeField] private Canvas homeCanvas;
     [SerializeField] private Canvas selectCanvas;
-    //[SerializeField] private Canvas memoryCanvas;
+    [SerializeField] private Canvas memoryCanvas;
 
     [SerializeField] private Button RGBtn;
     [SerializeField] private Button memoryBtn;
@@ -22,6 +22,7 @@ public class Home : MonoBehaviour
 
         homeCanvas = homeCanvasObj.GetComponent<Canvas>();
         //selectCanvas = GameObject.Find("Select Canvas").GetComponent<Canvas>();
+        //memoryCanvas = GameObject.Find("Memory Canvas").GetComponent<Canvas>();
 
         RGBtn = homeCanvasObj.transform.Find("RG Btn").GetComponent<Button>();
         memoryBtn = homeCanvasObj.transform.Find("Memory Btn").GetComponent<Button>();
@@ -46,6 +47,6 @@ public class Home : MonoBehaviour
     /// </summary>
     private void OnMemoryBtnClicked()
     {
-        // LoadManager.Instance.FadeAndActivateCanvas(memoryCanvas, homeCanvas);
+        LoadManager.Instance.FadeAndActivateCanvas(memoryCanvas, homeCanvas);
     }
 }

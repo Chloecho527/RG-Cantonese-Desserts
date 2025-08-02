@@ -8,15 +8,17 @@ using UnityEngine.UI;
 
 public class RoleSelectPanel : Singleton<RoleSelectPanel>
 {
-    // 角色数据信息
+    [Header("角色数据")]
     public List<RoleData> roleDatas = new List<RoleData>();
     public TextAsset roleTextAsset;
 
-    // 获取组件和物体
+    [Header("组件和物体")]
     public Transform roleList;   // 场景中的父物体RoleList
     public GameObject rolePrefab;
+    public CanvasGroup canvasGroup;
+    public GameObject roleDetails;
 
-    // 组件，用于鼠标滑入时角色信息更新
+    [Header("用于鼠标滑入时角色信息更新的组件")]
     public TextMeshProUGUI roleName;   // 角色名称
     public TextMeshProUGUI roleFaction;   // 角色流派
     public UnityEngine.UI.Image roleAvatar;   // 角色头像
@@ -37,6 +39,9 @@ public class RoleSelectPanel : Singleton<RoleSelectPanel>
         roleFaction = GameObject.Find("RoleFaction").GetComponent<TextMeshProUGUI>();
         roleAvatar = GameObject.Find("RoleAvatar").GetComponent<UnityEngine.UI.Image>();
         roleDescribe = GameObject.Find("RoleDescribe").GetComponent<TextMeshProUGUI>();
+        canvasGroup = GetComponent<CanvasGroup>();
+
+        roleDetails = GameObject.Find("RoleDetails");
     }
 
     private void Start()

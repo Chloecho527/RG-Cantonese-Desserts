@@ -394,7 +394,7 @@ Transform:
   m_GameObject: {fileID: 1672056188}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 697.9458, y: 464.29468, z: 6.4755034}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -415,7 +415,7 @@ MonoBehaviour:
   fadeCanvas: {fileID: 730047254}
   transitionImage: {fileID: 506775271}
   fadeDuration: 0.5
---- !u!1 &1876629304
+--- !u!1 &2086297266
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,47 +423,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1876629305}
-  - component: {fileID: 1876629306}
+  - component: {fileID: 2086297267}
+  - component: {fileID: 2086297268}
   m_Layer: 0
-  m_Name: UI Manager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1876629305
+--- !u!4 &2086297267
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876629304}
+  m_GameObject: {fileID: 2086297266}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 465.47824, y: 291.66812, z: 3.1129491}
+  m_LocalPosition: {x: 908.49243, y: 565.4385, z: 0.7534582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1876629306
+--- !u!114 &2086297268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876629304}
+  m_GameObject: {fileID: 2086297266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c64c2341c0447a4a85d5478d3e9652a, type: 3}
+  m_Script: {fileID: 11500000, guid: 474deb681b885f143b994c780ec178fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentData:
+    ID: 0
+    name: 
+    faction: 
+    avatar: 
+    describe: 
+    slot: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 749497079}
-  - {fileID: 1876629305}
   - {fileID: 1672056189}
   - {fileID: 730047255}
+  - {fileID: 2086297267}
