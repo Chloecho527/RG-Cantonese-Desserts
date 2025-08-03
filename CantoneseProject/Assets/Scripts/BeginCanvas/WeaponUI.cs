@@ -52,7 +52,8 @@ public class WeaponUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // 鼠标移入
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // 角色头像背景高亮////////////////////////////////////////////////////////后期根据画面颜色更改
+        // 武器图标背景高亮
+        // TODO 后期根据画面颜色更改
         backImage.color = new Color(100 / 255f, 70 / 255f, 60 / 255f);
         
         // 更新武器面板信息
@@ -62,8 +63,9 @@ public class WeaponUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // 鼠标移出
     public void OnPointerExit(PointerEventData eventData)
     {
-        // 角色头像背景恢复原色/////////////////////////////////////////////////////后期根据画面颜色更改
-        backImage.color = new Color(250 / 255f, 250 / 255f, 130 / 255f);
+        // 武器图标背景恢复原色
+        // TODO 后期根据画面颜色更改
+        backImage.color = new Color(250 / 255f, 130 / 255f, 130 / 255f);
     }
 
     /// <summary>
@@ -75,7 +77,7 @@ public class WeaponUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         // 修改图标、名称、武器类型、武器描述
         WeaponSelectPanel.Instance.weaponIcon.sprite = Resources.Load<Sprite>(w.iconPath);
         WeaponSelectPanel.Instance.weaponName.text = w.name;
-        WeaponSelectPanel.Instance.weaponType.text = w.isLong == 0 ? "近战" : "远程";
+        WeaponSelectPanel.Instance.weaponType.text = w.isLong == 0 ? "近战" : "远攻";
         WeaponSelectPanel.Instance.weaponDescribe.text = w.describe;
     }
 }

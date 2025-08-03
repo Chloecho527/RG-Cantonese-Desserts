@@ -38,8 +38,7 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         
         // 设置选择角色按钮的角色头像
         avatar.sprite = Resources.Load<Sprite>(roleData.avatarPath);
-
-        Debug.Log(button);
+        
         // Lambda表达式 点击事件
         button.onClick.AddListener(() =>
         {
@@ -55,6 +54,9 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         // 记录已选择的角色信息
         GameManager.Instance.currentRole = r;
+        
+        // 通知武器选择面板，仅显示对应角色的专武
+        WeaponSelectPanel.Instance.FilterWeaponsByRole(r.ID); 
 
         // 关闭角色选择UI面板
         RoleSelectPanel.Instance.canvasGroup.alpha = 0;
@@ -75,7 +77,8 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // 鼠标移入
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // 角色头像背景高亮////////////////////////////////////////////////////////后期根据画面颜色更改
+        // 角色头像背景高亮
+        // TODO 后期根据画面颜色更改
         backImage.color = new Color(100 / 255f, 70 / 255f, 60 / 255f);
 
         // 更新角色面板信息
@@ -85,7 +88,8 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // 鼠标移出
     public void OnPointerExit(PointerEventData eventData)
     {
-        // 角色头像背景恢复原色/////////////////////////////////////////////////////后期根据画面颜色更改
+        // 角色头像背景恢复原色
+        // TODO 后期根据画面颜色更改
         backImage.color = new Color(250 / 255f, 130 / 255f, 130 / 255f);
 
     }

@@ -21,7 +21,7 @@ public class Home : MonoBehaviour
         GameObject homeCanvasObj = this.gameObject;
 
         homeCanvas = homeCanvasObj.GetComponent<Canvas>();
-        //selectCanvas = GameObject.Find("Select Canvas").GetComponent<Canvas>();
+        selectCanvas = GameObject.Find("Select Canvas").GetComponent<Canvas>();
         //memoryCanvas = GameObject.Find("Memory Canvas").GetComponent<Canvas>();
 
         RGBtn = homeCanvasObj.transform.Find("RG Btn").GetComponent<Button>();

@@ -58,4 +58,27 @@ public class WeaponSelectPanel : Singleton<WeaponSelectPanel>
             weaponUI.SetData(weaponData);
         }
     }
+
+    /// <summary>
+    /// 选择角色后仅显示专武
+    /// </summary>
+    /// <param name="rID"></param>
+    public void FilterWeaponsByRole(int roleID)
+    {
+        // 清空现有武器UI(全武器)
+        foreach (Transform child in weaponList)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // 筛选出当前角色的专武（roleID匹配的武器）
+        List<WeaponData> roleWeapons = weaponDatas.FindAll(w => w.roleID == roleID);
+
+        // 生成筛选后的武器UI
+        foreach (WeaponData weaponData in roleWeapons)
+        {
+            WeaponUI weaponUI = Instantiate(weaponPrefab, weaponList).GetComponent<WeaponUI>();
+            weaponUI.SetData(weaponData);
+        }
+    }
 }
