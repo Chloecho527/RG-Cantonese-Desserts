@@ -459,13 +459,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474deb681b885f143b994c780ec178fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentData:
+  currentRole:
     ID: 0
     name: 
     faction: 
-    avatar: 
+    avatarPath: 
     describe: 
     slot: 0
+  currentWeapon:
+    ID: 0
+    roleID: 0
+    name: 
+    isLong: 0
+    iconPath: 
+    describe: 
+    attack: 0
+    range: 0
+    cooling: 0
+    repel: 0
+    criticalStrikeProbability: 0
+    criticalStrikeMultiple: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

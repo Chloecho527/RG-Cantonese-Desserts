@@ -7,9 +7,9 @@ using UnityEngine;
 public class RoleData
 {
     public int ID;
-    public string name;   // 角色名字
-    public string faction;   // 流派
-    public string avatar;   // 角色头像
-    public string describe;   // 角色台词和属性
-    public int slot;   // 武器插槽
+    public string name;          // 角色名字
+    public string faction;       // 流派
+    public string avatarPath;    // 角色头像
+    public string describe;      // 角色台词和属性
+    public int slot;             // 武器插槽
 }

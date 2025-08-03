@@ -28,7 +28,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907415699217859765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.15895335}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63, y: -315}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7777868516003557395
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.78431374, g: 0.3137255, b: 0.11764706, a: 1}
+  m_Color: {r: 0.98039216, g: 0.50980395, b: 0.50980395, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -90,10 +90,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ee1e2923282da4db0265bfdecdee45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roleData:
+    ID: 0
+    name: 
+    faction: 
+    avatarPath: 
+    describe: 
+    slot: 0
   backImage: {fileID: 0}
   avatar: {fileID: 0}
   button: {fileID: 0}
-  roleData: {fileID: 0}
 --- !u!114 &-738626190763257162
 MonoBehaviour:
   m_ObjectHideFlags: 0

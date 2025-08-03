@@ -18,16 +18,17 @@ public class RoleSelectPanel : Singleton<RoleSelectPanel>
     public CanvasGroup canvasGroup;
     public GameObject roleDetails;
 
-    [Header("用于鼠标滑入时角色信息更新的组件")]
-    public TextMeshProUGUI roleName;   // 角色名称
-    public TextMeshProUGUI roleFaction;   // 角色流派
+    [Header("用于鼠标滑入时角色信息更新的UI组件")]
+    public TextMeshProUGUI roleName;          // 角色名称
+    public TextMeshProUGUI roleFaction;       // 角色流派
     public UnityEngine.UI.Image roleAvatar;   // 角色头像
-    public TextMeshProUGUI roleDescribe;   // 角色台词和属性
+    public TextMeshProUGUI roleDescribe;      // 角色台词和属性
 
 
     protected override void Awake()
     {
-        roleList = GameObject.Find("RoleList").transform;   // 父物体
+        // 获取预制体信息
+        roleList = GameObject.Find("RoleList").transform;                // 父物体
         rolePrefab = Resources.Load<GameObject>(path: "Prefabs/Role");   // 角色预制体
 
         // 读取角色数据json文件，转换文本
@@ -39,8 +40,8 @@ public class RoleSelectPanel : Singleton<RoleSelectPanel>
         roleFaction = GameObject.Find("RoleFaction").GetComponent<TextMeshProUGUI>();
         roleAvatar = GameObject.Find("RoleAvatar").GetComponent<UnityEngine.UI.Image>();
         roleDescribe = GameObject.Find("RoleDescribe").GetComponent<TextMeshProUGUI>();
+        
         canvasGroup = GetComponent<CanvasGroup>();
-
         roleDetails = GameObject.Find("RoleDetails");
     }
 
