@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/Home.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/InfoSkip.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/Menu.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/RoleSelectPanel.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/RoleUI.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/WeaponSelectPanel.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/WeaponUI.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Manager/LoadManager.cs" charset="GBK" />
+  </component>
+</project>
