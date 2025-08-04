@@ -611,9 +611,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -785574637
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ac063e03c6bd6f54086317f10576f1a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -652,7 +652,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853202204}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4b5a389db755055448faa8de90117e03, type: 2}
   m_CullingMode: 0
@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 1298596160}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -926,6 +926,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6392c4a054ee543b5590ce494490c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  playerSpriteTrans: {fileID: 0}
 --- !u!1 &1349727570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,7 +1155,7 @@ GameObject:
   - component: {fileID: 1686261042}
   - component: {fileID: 1686261045}
   m_Layer: 0
-  m_Name: Character Camera
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
