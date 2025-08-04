@@ -479,6 +479,12 @@ MonoBehaviour:
     repel: 0
     criticalStrikeProbability: 0
     criticalStrikeMultiple: 0
+  currentMap:
+    ID: 0
+    name: 
+    mapSceneName: 
+    mapPath: 
+    describe: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
