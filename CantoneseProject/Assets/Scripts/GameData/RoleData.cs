@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]  // 允许JSON序列化/反序列化
 public class RoleData
 {
-    public int ID;
+    public int ID;               // 角色ID
     public string name;          // 角色名字
     public string faction;       // 流派
     public string avatarPath;    // 角色头像

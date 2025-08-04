@@ -1,10 +1,8 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RoleSelectPanel : Singleton<RoleSelectPanel>
 {

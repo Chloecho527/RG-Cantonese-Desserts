@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -46,7 +44,23 @@ public class WeaponUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private void OnButtonClicked(WeaponData w)
     {
         // 记录当前武器
+        GameManager.Instance.currentWeapon = w;
         
+        // 克隆UI
+        GameObject weapon_clone = Instantiate(WeaponSelectPanel.Instance.weaponDetails, MapSelectPanel.Instance.mapContentTrans);
+        weapon_clone.transform.SetSiblingIndex(0);
+        GameObject role_clone = Instantiate(RoleSelectPanel.Instance.roleDetails, MapSelectPanel.Instance.mapContentTrans);
+        role_clone.transform.SetSiblingIndex(0);
+        
+        // 关闭武器选择UI面板
+        WeaponSelectPanel.Instance.canvasGroup.alpha = 0;
+        WeaponSelectPanel.Instance.canvasGroup.blocksRaycasts = false;
+        WeaponSelectPanel.Instance.canvasGroup.interactable = false;
+        
+        // 打开地图选择UI面板
+        MapSelectPanel.Instance.canvasGroup.alpha = 1;
+        MapSelectPanel.Instance.canvasGroup.blocksRaycasts = true;
+        MapSelectPanel.Instance.canvasGroup.interactable = true;
     }
     
     // 鼠标移入
@@ -69,7 +83,7 @@ public class WeaponUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     /// <summary>
-    /// 更新武器信息面板
+    /// 鼠标滑入按钮，更新武器信息面板
     /// </summary>
     /// <param name="w"></param>
     public void RenewUI(WeaponData w)

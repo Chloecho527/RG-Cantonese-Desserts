@@ -1,0 +1,32 @@
+[
+    {
+        "ID": 1,
+        "name": "豆谷平原",
+        "mapEnemy": "敌人a",
+        "mapPath": "Image/R_Map/Map_1"
+    },
+    {
+        "ID": 2,
+        "name": "根薯洞穴",
+        "mapEnemy": "敌人b",
+        "mapPath": "Image/R_Map/Map_2"
+    },
+    {
+        "ID": 3,
+        "name": "奶蜜花园",
+        "mapEnemy": "敌人c",
+        "mapPath": "Image/R_Map/Map_3"
+    },
+    {
+        "ID": 4,
+        "name": "果茎母树",
+        "mapEnemy": "敌人d",
+        "mapPath": "Image/R_Map/Map_4"
+    },
+    {
+        "ID": 5,
+        "name": "滋补秘境",
+        "mapEnemy": "敌人e",
+        "mapPath": "Image/R_Map/Map_5"
+    }
+]

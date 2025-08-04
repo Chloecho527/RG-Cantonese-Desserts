@@ -81,8 +81,7 @@ public class LoadManager : Singleton<LoadManager>
         // 开始渐隐 - 显示转场图片
         transitionImage.raycastTarget = true;
         yield return StartCoroutine(FadeRoutine(transparent, opaque));
-
-
+        
         // 仅卸载MenuScene（不删除场景数据，保留重新加载的可能性）
         if (SceneManager.GetSceneByName("MenuScene").isLoaded)
         {
@@ -102,51 +101,50 @@ public class LoadManager : Singleton<LoadManager>
         transitionImage.raycastTarget = false;
     }
 
+    
+    
 
-
-
-
-    /// <summary>
-    /// 从地图返回家界面的方法
-    /// </summary>
-    public void ReturnToMainMenu(string currentMapSceneName)
-    {
-        StartCoroutine(ReturnToMainMenuRoutine(currentMapSceneName));
-    }
-
-    /// <summary>
-    /// 返回家界面的协程
-    /// </summary>
-    private IEnumerator ReturnToMainMenuRoutine(string currentMapSceneName)
-    {
-        // 渐隐效果
-        transitionImage.raycastTarget = true;
-        yield return StartCoroutine(FadeRoutine(transparent, opaque));
-
-        // 卸载当前地图场景
-        if (SceneManager.GetSceneByName(currentMapSceneName).isLoaded)
-        {
-            yield return SceneManager.UnloadSceneAsync(currentMapSceneName);
-        }
-
-        // 重新加载MenuScene
-        yield return SceneManager.LoadSceneAsync("MenuScene", LoadSceneMode.Additive);
-        Scene menuScene = SceneManager.GetSceneByName("MenuScene");
-        if (menuScene.isLoaded)
-        {
-            SceneManager.SetActiveScene(menuScene);
-            // 激活StartCanvas（假设主界面画布名为StartCanvas）
-            Canvas startCanvas = GameObject.FindObjectOfType<Menu>().GetComponent<Canvas>();
-            if (startCanvas != null)
-            {
-                startCanvas.gameObject.SetActive(true);
-            }
-        }
-
-        // 渐出效果
-        yield return StartCoroutine(FadeRoutine(opaque, transparent));
-        transitionImage.raycastTarget = false;
-    }
+    // /// <summary>
+    // /// 从地图返回家界面的方法
+    // /// </summary>
+    // public void ReturnToMainMenu(string currentMapSceneName)
+    // {
+    //     StartCoroutine(ReturnToMainMenuRoutine(currentMapSceneName));
+    // }
+    //
+    // /// <summary>
+    // /// 返回家界面的协程
+    // /// </summary>
+    // private IEnumerator ReturnToMainMenuRoutine(string currentMapSceneName)
+    // {
+    //     // 渐隐效果
+    //     transitionImage.raycastTarget = true;
+    //     yield return StartCoroutine(FadeRoutine(transparent, opaque));
+    //
+    //     // 卸载当前地图场景
+    //     if (SceneManager.GetSceneByName(currentMapSceneName).isLoaded)
+    //     {
+    //         yield return SceneManager.UnloadSceneAsync(currentMapSceneName);
+    //     }
+    //
+    //     // 重新加载MenuScene
+    //     yield return SceneManager.LoadSceneAsync("MenuScene", LoadSceneMode.Additive);
+    //     Scene menuScene = SceneManager.GetSceneByName("MenuScene");
+    //     if (menuScene.isLoaded)
+    //     {
+    //         SceneManager.SetActiveScene(menuScene);
+    //         // 激活StartCanvas（假设主界面画布名为StartCanvas）
+    //         Canvas startCanvas = GameObject.FindObjectOfType<Menu>().GetComponent<Canvas>();
+    //         if (startCanvas != null)
+    //         {
+    //             startCanvas.gameObject.SetActive(true);
+    //         }
+    //     }
+    //
+    //     // 渐出效果
+    //     yield return StartCoroutine(FadeRoutine(opaque, transparent));
+    //     transitionImage.raycastTarget = false;
+    // }
 
 
 

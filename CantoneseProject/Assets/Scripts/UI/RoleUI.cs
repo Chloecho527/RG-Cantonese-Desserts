@@ -64,7 +64,7 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         RoleSelectPanel.Instance.canvasGroup.interactable = false;
 
         // 克隆角色选择UI面板
-        GameObject go = Instantiate(RoleSelectPanel.Instance.roleDetails, WeaponSelectPanel.Instance.weaponContent);
+        GameObject go = Instantiate(RoleSelectPanel.Instance.roleDetails, WeaponSelectPanel.Instance.weaponContentTrans);
         go.transform.SetSiblingIndex(0);
         
         // 打开武器选择UI面板
@@ -95,7 +95,7 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     /// <summary>
-    /// 更新角色信息面板
+    /// 鼠标滑入按钮，更新角色信息面板
     /// </summary>
     public void RenewUI(RoleData r)
     {
