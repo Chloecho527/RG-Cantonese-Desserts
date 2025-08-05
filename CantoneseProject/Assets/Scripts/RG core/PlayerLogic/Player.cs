@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -15,7 +14,7 @@ public class Player : MonoBehaviour
         Instance = this;
         
         playerSpriteTrans = GameObject.Find("PlayerSprite").transform;
-        anim = GetComponentInChildren<Animator>();
+        anim = playerSpriteTrans.GetComponent<Animator>();
 
         Debug.Log(GameManager.Instance.currentRole.animatorController);
         // TEST 对应角色的动画
@@ -43,7 +42,9 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    // TODO wasd移动
+    /// <summary>
+    /// wasd 移动
+    /// </summary>
     public void Move()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");  // 1 或 -1
@@ -52,12 +53,28 @@ public class Player : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         movement.Normalize();
         transform.Translate(movement * speed * Time.deltaTime);
+        
+        // 动画机，判断角色是否移动
+        if (anim != null)
+        {
+            if (movement.magnitude != 0 )
+            {
+                anim.SetBool("isMove", true);
+            }
+            else
+            {
+                anim.SetBool("isMove", false); 
+            }
+        }
     
         TurnAround(moveHorizontal);
         //Debug.Log(playerSpriteTrans.localScale.x);
     }
     
-    // TODO 精灵翻转函数
+    /// <summary>
+    /// sprite翻转
+    /// </summary>
+    /// <param name="h"></param>
     public void TurnAround(float h)
     {
         if (h < 0)        //  TEST localScale暂时为 5，后续调整
