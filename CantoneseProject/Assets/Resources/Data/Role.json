@@ -4,6 +4,7 @@
         "name": "角色A",
         "faction": "猛火快炒派",
         "avatarPath": "Image/R_Player/char_1",
+        "animatorController": "Animations/1_Controller",
         "slot": 2,
         "describe": "A台词"
     },
@@ -12,6 +13,7 @@
         "name": "角色B",
         "faction": "冷凝细作派",
         "avatarPath": "Image/R_Player/char_2",
+        "animatorController": "Animations/2_Controller",
         "slot": 2,
         "describe": "B台词"
     },
@@ -20,6 +22,7 @@
         "name": "角色C",
         "faction": "百草滋补派",
         "avatarPath": "Image/R_Player/char_3",
+        "animatorController": "Animations/3_Controller",
         "slot": 2,
         "describe": "C台词"
     },
@@ -28,6 +31,7 @@
         "name": "角色D",
         "faction": "巧手点心派",
         "avatarPath": "Image/R_Player/char_4",
+        "animatorController": "Animations/4_Controller",
         "slot": 2,
         "describe": "D台词"
     }

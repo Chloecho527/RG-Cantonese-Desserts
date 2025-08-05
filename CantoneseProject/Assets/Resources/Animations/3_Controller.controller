@@ -83,7 +83,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: P1_walk_animator
+  m_Name: 3_Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isMove

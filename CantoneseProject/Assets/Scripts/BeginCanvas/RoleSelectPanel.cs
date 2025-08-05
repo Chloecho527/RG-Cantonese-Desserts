@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoleSelectPanel : Singleton<RoleSelectPanel>
 {
@@ -36,7 +37,7 @@ public class RoleSelectPanel : Singleton<RoleSelectPanel>
         // 组件获取
         roleName = GameObject.Find("RoleName").GetComponent<TextMeshProUGUI>();
         roleFaction = GameObject.Find("RoleFaction").GetComponent<TextMeshProUGUI>();
-        roleAvatar = GameObject.Find("RoleAvatar").GetComponent<UnityEngine.UI.Image>();
+        roleAvatar = GameObject.Find("RoleAvatar").GetComponent<Image>();
         roleDescribe = GameObject.Find("RoleDescribe").GetComponent<TextMeshProUGUI>();
         
         canvasGroup = GetComponent<CanvasGroup>();
