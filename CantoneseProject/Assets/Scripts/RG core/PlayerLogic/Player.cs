@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
+    
     public float speed = 5f;                 // TEST 速度暂时为 5
     public Transform playerSpriteTrans;
     public Animator anim;   // 动画机
@@ -10,13 +12,15 @@ public class Player : MonoBehaviour
     
     private void Awake()
     {
+        Instance = this;
+        
         playerSpriteTrans = GameObject.Find("PlayerSprite").transform;
         anim = GetComponentInChildren<Animator>();
 
+        Debug.Log(GameManager.Instance.currentRole.animatorController);
         // TEST 对应角色的动画
         if (!string.IsNullOrEmpty(GameManager.Instance.currentRole.animatorController))
         {
-            Debug.Log(GameManager.Instance.currentRole.animatorController);
             RuntimeAnimatorController controller = Resources.Load<RuntimeAnimatorController>(GameManager.Instance.currentRole.animatorController);
             if (controller != null)
             {
