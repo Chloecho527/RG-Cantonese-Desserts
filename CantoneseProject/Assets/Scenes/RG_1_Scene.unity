@@ -663,6 +663,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05ab306df965f744af0ff42e1111444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpSlider: {fileID: 0}
+  expSlider: {fileID: 0}
+  moneyCount: {fileID: 0}
+  expCount: {fileID: 0}
+  hpCount: {fileID: 0}
+  countDown: {fileID: 0}
+  waveCount: {fileID: 0}
 --- !u!1 &384915927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,10 +2133,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  playerSpriteTrans: {fileID: 0}
-  anim: {fileID: 0}
   hp: 15
+  maxHp: 15
+  exp: 0
   isDead: 0
+  anim: {fileID: 0}
+  playerSpriteTrans: {fileID: 0}
+  money: 30
 --- !u!1 &1440230016
 GameObject:
   m_ObjectHideFlags: 0

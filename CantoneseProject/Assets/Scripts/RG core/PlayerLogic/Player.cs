@@ -4,11 +4,19 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
     
-    public float speed = 5f;                 // TEST 速度暂时为 5
-    public Transform playerSpriteTrans;
-    public Animator anim;   // 动画机
-    public float hp = 15f;        // 血量
-    public bool isDead = false;
+    [Header("基本属性")]
+    public float speed = 5f;     // TEST 速度暂时为 5
+    public float hp = 15f;       // 当前生命值
+    public float maxHp = 15f;    // 最大生命值
+    public float exp = 0;        // TEST 当前经验值
+    
+    [Header("状态")]
+    public bool isDead = false;      // 是否死亡
+    
+    [Header("脚本组件获取")]
+    public Animator anim;                  // 动画机
+    public Transform playerSpriteTrans;    // 角色sprite位置
+    public int money = 30;                 // 当前金币
 
     
     private void Awake()
@@ -118,6 +126,9 @@ public class Player : MonoBehaviour
         {
             hp -= enemyATK;
         }
+        
+        //更新血条
+        GamePanel.Instance.RenewHp();
     }
     
     // TODO 死亡
