@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -33,8 +30,41 @@ public class EnemyBase : MonoBehaviour
     private void Update()
     {
         EnemyMove();
+        
+        // 攻击
+        if(isContact && !isCooling) 
+        {
+            EnemyAttack();
+        }
+
+        if (isCooling)
+        {
+            atkTimer -= Time.deltaTime;
+            
+            if (atkTimer <= 0)
+            {
+                atkTimer = 0;
+                isCooling = false;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isContact = true;
+        }
     }
     
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isContact = false;
+        }
+    }
+
     // TODO 自动移动
     public void EnemyMove()
     {
@@ -63,6 +93,20 @@ public class EnemyBase : MonoBehaviour
     }
     
     // TODO 攻击
+    public void EnemyAttack()
+    {
+        //如果处于攻击冷却期间, 则返回
+        if (isCooling)
+        {
+            return;
+        }
+
+        Player.Instance.PlayerInjured(damage);
+
+        //攻击进入冷却
+        isCooling = true;
+        atkTimer = attackTime;  
+    }
     
     // TODO 受伤
     

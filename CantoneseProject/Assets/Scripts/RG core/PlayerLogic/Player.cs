@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public float speed = 5f;                 // TEST 速度暂时为 5
     public Transform playerSpriteTrans;
     public Animator anim;   // 动画机
+    public float hp = 15f;        // 血量
+    public bool isDead = false;
 
     
     private void Awake()
@@ -39,6 +41,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+        
         Move();
     }
 
@@ -96,12 +103,29 @@ public class Player : MonoBehaviour
     // TODO 受伤
     public void PlayerInjured(float enemyATK)
     {
-        
+        if (isDead)
+        {
+            return;
+        }
+
+        // 判断本次攻击是否死亡
+        if (hp - enemyATK <= 0)
+        {
+            hp = 0;
+            PlayerDead();
+        }
+        else
+        {
+            hp -= enemyATK;
+        }
     }
     
     // TODO 死亡
     public void PlayerDead()
     {
+        isDead = true;
+        anim.speed = 0f;
         
+        // TODO 调用游戏失败函数
     }
 }
