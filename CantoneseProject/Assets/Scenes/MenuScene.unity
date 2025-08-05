@@ -2278,7 +2278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1e00bfc3b76780840ac6c74f06d37e30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c0da046fc47e9c4fb8b44631b807e3d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3511,8 +3511,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7e38a48d1543f48d381ae41ef52656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapDatas: []
+  mapTextAsset: {fileID: 0}
+  mapList: {fileID: 0}
+  mapPrefab: {fileID: 0}
   mapContentTrans: {fileID: 0}
   canvasGroup: {fileID: 0}
+  mapDetails: {fileID: 0}
+  mapName: {fileID: 0}
+  mapAvatar: {fileID: 0}
+  mapDescribe: {fileID: 0}
 --- !u!1 &865263710
 GameObject:
   m_ObjectHideFlags: 0

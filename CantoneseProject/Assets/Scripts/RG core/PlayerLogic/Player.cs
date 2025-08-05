@@ -29,17 +29,16 @@ public class Player : MonoBehaviour
     
         TurnAround(moveHorizontal);
         //Debug.Log(playerSpriteTrans.localScale.x);
-        Debug.Log(movement);
     }
     
     // TODO 精灵翻转函数
     public void TurnAround(float h)
     {
-        if (h == -1)        //  TEST localScale暂时为 5，后续调整
+        if (h < 0)        //  TEST localScale暂时为 5，后续调整
         {
             playerSpriteTrans.localScale = new Vector3(-5, playerSpriteTrans.localScale.y, playerSpriteTrans.localScale.z);
         }
-        else if (h == 1)   //  TEST localScale暂时为 5，后续调整
+        else if (h > 0)   //  TEST localScale暂时为 5，后续调整
         {
             playerSpriteTrans.localScale = new Vector3(5, playerSpriteTrans.localScale.y, playerSpriteTrans.localScale.z);
         }
