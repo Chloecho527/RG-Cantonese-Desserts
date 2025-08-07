@@ -57,7 +57,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: P1_idle_anim
+  m_Name: P4_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -71,7 +71,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 06985c1a015e56344bf1dcc32bf1bba7, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9fbafaf0fc7cc0746babf8ed048ab9e8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -137,7 +137,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: P1_walk_anim
+  m_Name: P4_walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -151,7 +151,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 06985c1a015e56344bf1dcc32bf1bba7, type: 2}
+  m_Motion: {fileID: 7400000, guid: bc476d34c005b4a489c8ab6a9f9cdecc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

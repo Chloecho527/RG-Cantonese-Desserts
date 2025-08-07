@@ -486,6 +486,7 @@ MonoBehaviour:
     mapSceneName: 
     mapPath: 
     describe: 
+  currentWave: 1
   roleDatas: []
   roleTextAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

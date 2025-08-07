@@ -33,6 +33,9 @@ public class GamePanel : Singleton<GamePanel>
         
         // 更新金币
         RenewMoney();
+        
+        // 更新波次信息
+        RenewWaveCount();
     }
 
     /// <summary>
@@ -60,5 +63,22 @@ public class GamePanel : Singleton<GamePanel>
     public void RenewMoney()
     {
         moneyCount.text = Player.Instance.money.ToString();
+    }
+
+    /// <summary>
+    /// 更新倒计时
+    /// </summary>
+    /// <param name="time"></param>
+    public void RenewCountDown(float time)
+    {
+        countDown.text = time.ToString("F0");
+    }
+
+    /// <summary>
+    /// 更新波次
+    /// </summary>
+    public void RenewWaveCount()
+    {
+        waveCount.text = GameManager.Instance.currentWave.ToString();
     }
 }

@@ -137,6 +137,7 @@ public class Player : MonoBehaviour
         isDead = true;
         anim.speed = 0f;
         
-        // TODO 调用游戏失败函数
+        // 调用游戏失败函数
+        LevelController.Instance.FailGame();
     }
 }
