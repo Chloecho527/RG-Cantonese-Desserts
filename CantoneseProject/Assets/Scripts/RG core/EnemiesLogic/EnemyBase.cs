@@ -12,6 +12,7 @@ public class EnemyBase : MonoBehaviour
     public float damage;                // 攻击力
     public float attackTime;            // 攻击间隔
     public float atkTimer = 0;          // 攻击计时器
+    public bool isLittleEnemy;          // 是否为小怪
     
     [Header("死亡属性")]
     public int provideExp = 1;              // 被击杀后提供的经验值
@@ -57,9 +58,13 @@ public class EnemyBase : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// 小怪：接触则造成伤害
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && isLittleEnemy)
         {
             isContact = false;
         }
@@ -109,6 +114,36 @@ public class EnemyBase : MonoBehaviour
     }
     
     // TODO 受伤
+    public void EnemyInjured(float enemyATK)
+    {
+        // if (isDead)
+        // {
+        //     return;
+        // }
+
+        // 判断本次被攻击是否死亡
+        if (hp - enemyATK <= 0)
+        {
+            hp = 0;
+            EnemyDead();
+        }
+        else
+        {
+            hp -= enemyATK;
+        }
+    }
     
     // TODO 死亡
+    public void EnemyDead()
+    {
+        // 增加玩家经验值
+        Player.Instance.exp += provideExp;
+        GamePanel.Instance.RenewExp();
+        
+        // 掉落金币
+        Instantiate(money_prefab, transform.position, Quaternion.identity);
+        
+        // 销毁自身
+        Destroy(gameObject);
+    }
 }

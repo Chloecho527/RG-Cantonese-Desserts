@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -25,8 +26,7 @@ public class Player : MonoBehaviour
         
         playerSpriteTrans = GameObject.Find("PlayerSprite").transform;
         anim = playerSpriteTrans.GetComponent<Animator>();
-
-        Debug.Log(GameManager.Instance.currentRole.animatorController);
+        
         // TEST 对应角色的动画
         if (!string.IsNullOrEmpty(GameManager.Instance.currentRole.animatorController))
         {
@@ -55,6 +55,19 @@ public class Player : MonoBehaviour
         }
         
         Move();
+    }
+
+    /// <summary>
+    /// 吃金币
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Money"))   // 吃金币
+        {
+            money += 1;
+            GamePanel.Instance.RenewMoney();
+        }
     }
 
     /// <summary>

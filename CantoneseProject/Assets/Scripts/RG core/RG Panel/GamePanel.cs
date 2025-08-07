@@ -79,6 +79,6 @@ public class GamePanel : Singleton<GamePanel>
     /// </summary>
     public void RenewWaveCount()
     {
-        waveCount.text = GameManager.Instance.currentWave.ToString();
+        waveCount.text = "ตฺ" + GameManager.Instance.currentWave.ToString() + "นุ";
     }
 }

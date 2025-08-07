@@ -11,5 +11,6 @@ public class Enemy_1_1 : EnemyBase
         hp = 8f;
         damage = 1f;
         attackTime = 1.5f;
+        isLittleEnemy = true;
     }
 }
