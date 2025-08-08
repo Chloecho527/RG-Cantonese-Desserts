@@ -1,9 +1,9 @@
 using UnityEngine;
 
-//·ºĞÍÊµÏÖÀàĞÍ²ÎÊı»¯£¬´ïµ½´úÂëÖØÓÃµÄÄ¿µÄ
+//æ³›å‹å®ç°ç±»å‹å‚æ•°åŒ–ï¼Œè¾¾åˆ°ä»£ç é‡ç”¨çš„ç›®çš„
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    //TÆğµ½Õ¼Î»·ûµÄ×÷ÓÃ£¬Ïàµ±ÓÚÄ£°å¡£Ö»ÓĞÊ¹ÓÃSingletonÕâ¸ö·ºĞÍÀàµÄÊ±ºò£¬²ÅÄÜ¸ù¾İ×Ô¼ºµÄĞèÒªÈ·¶¨TµÄÀàĞÍ
+    //Tèµ·åˆ°å ä½ç¬¦çš„ä½œç”¨ï¼Œç›¸å½“äºæ¨¡æ¿ã€‚åªæœ‰ä½¿ç”¨Singletonè¿™ä¸ªæ³›å‹ç±»çš„æ—¶å€™ï¼Œæ‰èƒ½æ ¹æ®è‡ªå·±çš„éœ€è¦ç¡®å®šTçš„ç±»å‹
     private static T _instance;
 
     public static T Instance
@@ -27,7 +27,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (_instance == null)
         {
-            //ÀïÊ½×ª»»Ô­Ôò
+            //é‡Œå¼è½¬æ¢åŸåˆ™
             _instance = this as T;
             DontDestroyOnLoad(gameObject);
         }

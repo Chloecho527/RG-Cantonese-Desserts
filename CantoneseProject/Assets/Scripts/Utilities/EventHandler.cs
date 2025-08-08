@@ -5,10 +5,10 @@ using System;
 
 public static class EventHandler
 {
-    ////// Ìø×ªCanvasµÄÊÂ¼þ
+    ////// è·³è½¬Canvasçš„äº‹ä»¶
     //public static event Action<>
 
-    // ·µ»Ø³¡¾°¼ÒµÄÊÂ¼þ
+    // è¿”å›žåœºæ™¯å®¶çš„äº‹ä»¶
     public static event Action BackToHomeEvent;
     public static void CallBackToHomeEvent()
     {

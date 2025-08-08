@@ -9,9 +9,9 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlayMenuBGM()
     {
-    //    bgMusicSource.clip = menuBGM;  // ÉèÖÃ±³¾°ÒôÀÖ
-    //    bgMusicSource.loop = true;  // ²»Ñ­»·£¬²¥·ÅÍêÒ»Ê×»»ÏÂÒ»Ê×
-    //    bgMusicSource.Play();  // ²¥·Å±³¾°ÒôÀÖ
+    //    bgMusicSource.clip = menuBGM;  // è®¾ç½®èƒŒæ™¯éŸ³ä¹
+    //    bgMusicSource.loop = true;  // ä¸å¾ªç¯ï¼Œæ’­æ”¾å®Œä¸€é¦–æ¢ä¸‹ä¸€é¦–
+    //    bgMusicSource.Play();  // æ’­æ”¾èƒŒæ™¯éŸ³ä¹
     //
     }
 }

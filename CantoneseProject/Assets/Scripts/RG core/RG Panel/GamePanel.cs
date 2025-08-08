@@ -6,11 +6,11 @@ public class GamePanel : Singleton<GamePanel>
 {
     public Slider hpSlider;
     public Slider expSlider;
-    public TMP_Text moneyCount;       // ���
-    public TMP_Text expCount;         // �ȼ� LV.0
-    public TMP_Text hpCount;          // ����ֵ 10/15
-    public TMP_Text countDown;        // �ؿ�����ʱ 15
-    public TMP_Text waveCount;        // ��ǰ���� 15
+    public TMP_Text moneyCount;       // 金币
+    public TMP_Text expCount;         // 等级 LV.0
+    public TMP_Text hpCount;          // 生命值 10/15
+    public TMP_Text countDown;        // 关卡倒计时
+    public TMP_Text waveCount;        // 波次 15
 
     protected override void Awake()
     {
@@ -25,31 +25,31 @@ public class GamePanel : Singleton<GamePanel>
 
     private void Start()
     {
-        // ���¾���ֵ
-        RenewExp();  // TEST ����ֵ
+        // 更新经验条
+        RenewExp();  // TEST 
         
-        // ��������ֵ
+        // 更新生命值
         RenewHp();
         
-        // ���½��
+        // 更新金币
         RenewMoney();
         
-        // ���²�����Ϣ
+        // 更新波次信息
         RenewWaveCount();
     }
-
+    
     /// <summary>
-    /// ���¾���ֵ UI
+    /// 更新经验值 UI
     /// </summary>
     public void RenewExp()   // TEST ����ֵ
     {
-        // 25, 12 2�� ,1   1/12 = 0.1
+        // 25, 12 2级 ,1   1/12 = 0.1
         expSlider.value = Player.Instance.exp % 12 / 12;
         expCount.text = "LV." + (int)(Player.Instance.exp / 12);
     }
 
     /// <summary>
-    /// ��������ֵ UI
+    /// 更新生命值 UI
     /// </summary>
     public void RenewHp()
     {
@@ -58,7 +58,7 @@ public class GamePanel : Singleton<GamePanel>
     }
     
     /// <summary>
-    /// ���½�� UI
+    /// 更新金币 UI
     /// </summary>
     public void RenewMoney()
     {
@@ -66,7 +66,7 @@ public class GamePanel : Singleton<GamePanel>
     }
 
     /// <summary>
-    /// ���µ���ʱ
+    /// 更新倒计时
     /// </summary>
     /// <param name="time"></param>
     public void RenewCountDown(float time)
@@ -75,7 +75,7 @@ public class GamePanel : Singleton<GamePanel>
     }
 
     /// <summary>
-    /// ���²���
+    /// 更新波次
     /// </summary>
     public void RenewWaveCount()
     {

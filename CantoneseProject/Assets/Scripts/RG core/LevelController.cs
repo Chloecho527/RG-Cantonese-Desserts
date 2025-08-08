@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class LevelController : Singleton<LevelController>
 {
-    public float waveTimer;             // �ؿ�����ʱ��
-    public GameObject successPanel;     // ͨ�����
-    public GameObject failPanel;        // ʧ�����
+    public float waveTimer;             // 计时器
+    public GameObject successPanel;     // 通关面板
+    public GameObject failPanel;        // 死亡面板
 
 
     private void Awake()
@@ -34,21 +34,19 @@ public class LevelController : Singleton<LevelController>
         GamePanel.Instance.RenewCountDown(waveTimer);
     }
     
-    // ���ɵ���
     
-    // ��Ϸʤ��
     public void SuccessGame()
     {
         successPanel.GetComponent<CanvasGroup>().alpha = 1;
         
-        // TODO go menuЯ��    ��Ƶλ�ã�021 18��00
+        // TODO go menu
     }
-    // ��Ϸʧ��
+   
     public void FailGame()
     {
         failPanel.GetComponent<CanvasGroup>().alpha = 1;
     }
     
-    // �������
+    
     
 }

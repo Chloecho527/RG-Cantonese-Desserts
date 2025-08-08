@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    [Header("��������")]
+    [Header("基本属性")]
     public float hp;            // Ѫ��
     public float speed;         // �ƶ��ٶ�
     
-    [Header("��������")]
+    [Header("攻击属性")]
     public bool isContact = false;      // �Ƿ�Ӵ������
     public bool isCooling = false;      // �Ƿ��ڹ�����ȴ�ڼ�
     public float damage;                // ������
@@ -14,7 +14,7 @@ public class EnemyBase : MonoBehaviour
     public float atkTimer = 0;          // ������ʱ��
     public bool isLittleEnemy;          // �Ƿ�ΪС��
     
-    [Header("��������")]
+    [Header("死亡属性")]
     public int provideExp = 1;              // ����ɱ���ṩ�ľ���ֵ
     public GameObject money_prefab;         // ����ɱ�������Ԥ����
     
@@ -32,7 +32,7 @@ public class EnemyBase : MonoBehaviour
     {
         EnemyMove();
         
-        // ����
+        // 小怪接触攻击
         if(isContact && !isCooling) 
         {
             EnemyAttack();
@@ -59,7 +59,7 @@ public class EnemyBase : MonoBehaviour
     }
     
     /// <summary>
-    /// С�֣��Ӵ�������˺�
+    /// 小怪接触攻击
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
@@ -70,7 +70,7 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    // TODO �Զ��ƶ�
+    
     public void EnemyMove()
     {
         Vector2 direction =(Vector2)(Player.Instance.transform.position - this.transform.position).normalized;
@@ -79,7 +79,7 @@ public class EnemyBase : MonoBehaviour
         EnemyTurnAround();
     }
     
-    // TODO �Զ�ת��
+    
     public void EnemyTurnAround()
     {
         // ����ڹ����ұ�
@@ -97,10 +97,10 @@ public class EnemyBase : MonoBehaviour
         }
     }
     
-    // TODO ����
+    
     public void EnemyAttack()
     {
-        //������ڹ�����ȴ�ڼ�, �򷵻�
+        // 处于冷却期间
         if (isCooling)
         {
             return;
@@ -108,12 +108,12 @@ public class EnemyBase : MonoBehaviour
 
         Player.Instance.PlayerInjured(damage);
 
-        //����������ȴ
+        // 本次攻击完毕
         isCooling = true;
         atkTimer = attackTime;  
     }
     
-    // TODO ����
+    // 怪物受伤
     public void EnemyInjured(float enemyATK)
     {
         // if (isDead)
@@ -121,7 +121,7 @@ public class EnemyBase : MonoBehaviour
         //     return;
         // }
 
-        // �жϱ��α������Ƿ�����
+        // 生命值小于0
         if (hp - enemyATK <= 0)
         {
             hp = 0;
@@ -133,17 +133,17 @@ public class EnemyBase : MonoBehaviour
         }
     }
     
-    // TODO ����
+    
     public void EnemyDead()
     {
-        // ������Ҿ���ֵ
+        // 更新经验值
         Player.Instance.exp += provideExp;
         GamePanel.Instance.RenewExp();
         
-        // ������
+        // 掉落物
         Instantiate(money_prefab, transform.position, Quaternion.identity);
         
-        // ��������
+        // 销毁自身
         Destroy(gameObject);
     }
 }

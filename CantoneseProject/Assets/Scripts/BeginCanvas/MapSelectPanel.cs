@@ -8,33 +8,33 @@ using UnityEngine.UI;
 
 public class MapSelectPanel : Singleton<MapSelectPanel>
 {
-    [Header("µØÍ¼Êı¾İ")]
+    [Header("åœ°å›¾æ•°æ®")]
     public List<MapData> mapDatas = new List<MapData>();
     public TextAsset mapTextAsset;
     
-    [Header("×é¼şºÍÎïÌå")]
-    public Transform mapList;                // ³¡¾°ÖĞµÄ¸¸ÎïÌåMapList
+    [Header("ç»„ä»¶å’Œç‰©ä½“")]
+    public Transform mapList;                // åœºæ™¯ä¸­çš„çˆ¶ç‰©ä½“MapList
     public GameObject mapPrefab;
     public Transform mapContentTrans;
     public CanvasGroup canvasGroup;
     public GameObject mapDetails;
     
-    [Header("ÓÃÓÚÊó±ê»¬ÈëÊ±µØÍ¼ĞÅÏ¢¸üĞÂµÄUI×é¼ş")]
-    public TextMeshProUGUI mapName;          // µØÍ¼Ãû³Æ
-    public Image mapAvatar;                  // µØÍ¼Ô¤ÀÀÍ¼
-    public TextMeshProUGUI mapDescribe;      // µĞÇéÃèÊö
+    [Header("ç”¨äºé¼ æ ‡æ»‘å…¥æ—¶åœ°å›¾ä¿¡æ¯æ›´æ–°çš„UIç»„ä»¶")]
+    public TextMeshProUGUI mapName;          // åœ°å›¾åç§°
+    public Image mapAvatar;                  // åœ°å›¾é¢„è§ˆå›¾
+    public TextMeshProUGUI mapDescribe;      // æ•Œæƒ…æè¿°
 
     protected override void Awake()
     {
-        // »ñÈ¡Ô¤ÖÆÌåĞÅÏ¢
-        mapList = GameObject.Find("MapList").transform;                // ¸¸ÎïÌå
-        mapPrefab = Resources.Load<GameObject>(path: "Prefabs/Map");    // Ô¤ÀÀÍ¼Ô¤ÖÆÌå
+        // è·å–é¢„åˆ¶ä½“ä¿¡æ¯
+        mapList = GameObject.Find("MapList").transform;                // çˆ¶ç‰©ä½“
+        mapPrefab = Resources.Load<GameObject>(path: "Prefabs/Map");    // é¢„è§ˆå›¾é¢„åˆ¶ä½“
         
-        // ¶ÁÈ¡µØÍ¼Êı¾İjsonÎÄ¼ş£¬×ª»»ÎÄ±¾
+        // è¯»å–åœ°å›¾æ•°æ®jsonæ–‡ä»¶ï¼Œè½¬æ¢æ–‡æœ¬
         mapTextAsset = Resources.Load<TextAsset>(path: "Data/Map");
         mapDatas = JsonConvert.DeserializeObject<List<MapData>>(mapTextAsset.text);
         
-        // ×é¼ş»ñÈ¡
+        // ç»„ä»¶è·å–
         mapName = GameObject.Find("MapName").GetComponent<TextMeshProUGUI>();
         mapAvatar = GameObject.Find("MapAvatar").GetComponent<Image>();
         mapDescribe = GameObject.Find("MapDescribe").GetComponent<TextMeshProUGUI>();

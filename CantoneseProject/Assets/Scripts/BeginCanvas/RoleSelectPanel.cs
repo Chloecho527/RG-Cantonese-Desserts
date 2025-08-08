@@ -7,34 +7,34 @@ using UnityEngine.UI;
 
 public class RoleSelectPanel : Singleton<RoleSelectPanel>
 {
-    [Header("½ÇÉ«Êı¾İ")]
+    [Header("è§’è‰²æ•°æ®")]
     public List<RoleData> roleDatas = new List<RoleData>();
     public TextAsset roleTextAsset;
 
-    [Header("×é¼şºÍÎïÌå")]
-    public Transform roleList;   // ³¡¾°ÖĞµÄ¸¸ÎïÌåRoleList
+    [Header("ç»„ä»¶å’Œç‰©ä½“")]
+    public Transform roleList;   // åœºæ™¯ä¸­çš„çˆ¶ç‰©ä½“RoleList
     public GameObject rolePrefab;
     public CanvasGroup canvasGroup;
     public GameObject roleDetails;
 
-    [Header("ÓÃÓÚÊó±ê»¬ÈëÊ±½ÇÉ«ĞÅÏ¢¸üĞÂµÄUI×é¼ş")]
-    public TextMeshProUGUI roleName;          // ½ÇÉ«Ãû³Æ
-    public TextMeshProUGUI roleFaction;       // ½ÇÉ«Á÷ÅÉ
-    public UnityEngine.UI.Image roleAvatar;   // ½ÇÉ«Í·Ïñ
-    public TextMeshProUGUI roleDescribe;      // ½ÇÉ«Ì¨´ÊºÍÊôĞÔ
+    [Header("ç”¨äºé¼ æ ‡æ»‘å…¥æ—¶è§’è‰²ä¿¡æ¯æ›´æ–°çš„UIç»„ä»¶")]
+    public TextMeshProUGUI roleName;          // è§’è‰²åç§°
+    public TextMeshProUGUI roleFaction;       // è§’è‰²æµæ´¾
+    public UnityEngine.UI.Image roleAvatar;   // è§’è‰²å¤´åƒ
+    public TextMeshProUGUI roleDescribe;      // è§’è‰²å°è¯å’Œå±æ€§
 
 
     protected override void Awake()
     {
-        // »ñÈ¡Ô¤ÖÆÌåĞÅÏ¢
-        roleList = GameObject.Find("RoleList").transform;                // ¸¸ÎïÌå
-        rolePrefab = Resources.Load<GameObject>(path: "Prefabs/Role");   // ½ÇÉ«Ô¤ÖÆÌå
+        // è·å–é¢„åˆ¶ä½“ä¿¡æ¯
+        roleList = GameObject.Find("RoleList").transform;                // çˆ¶ç‰©ä½“
+        rolePrefab = Resources.Load<GameObject>(path: "Prefabs/Role");   // è§’è‰²é¢„åˆ¶ä½“
 
-        // ¶ÁÈ¡½ÇÉ«Êı¾İjsonÎÄ¼ş£¬×ª»»ÎÄ±¾
+        // è¯»å–è§’è‰²æ•°æ®jsonæ–‡ä»¶ï¼Œè½¬æ¢æ–‡æœ¬
         roleTextAsset = Resources.Load<TextAsset>(path: "Data/Role");
         roleDatas = JsonConvert.DeserializeObject<List<RoleData>>(roleTextAsset.text);
 
-        // ×é¼ş»ñÈ¡
+        // ç»„ä»¶è·å–
         roleName = GameObject.Find("RoleName").GetComponent<TextMeshProUGUI>();
         roleFaction = GameObject.Find("RoleFaction").GetComponent<TextMeshProUGUI>();
         roleAvatar = GameObject.Find("RoleAvatar").GetComponent<Image>();

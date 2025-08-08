@@ -4,19 +4,19 @@ using Newtonsoft.Json;
 
 public class GameManager : Singleton<GameManager>
 {
-    public RoleData currentRole;       // Ñ¡ÔñµÄ½ÇÉ«
-    public WeaponData currentWeapon;   // Ñ¡ÔñµÄÎäÆ÷
-    public MapData currentMap;         // Ñ¡ÔñµÄµØÍ¼
-    public int currentWave = 1;            // µ±Ç°²¨´Î
+    public RoleData currentRole;       // é€‰æ‹©çš„è§’è‰²
+    public WeaponData currentWeapon;   // é€‰æ‹©çš„æ­¦å™¨
+    public MapData currentMap;         // é€‰æ‹©çš„åœ°å›¾
+    public int currentWave = 1;        // å½“å‰æ³¢æ¬¡
 
     
-    [Header("½ÇÉ«Êı¾İ")]
+    [Header("è§’è‰²æ•°æ®")]
     public List<RoleData> roleDatas = new List<RoleData>();
     public TextAsset roleTextAsset;
     
     protected override void Awake()
     {
-        // ¶ÁÈ¡½ÇÉ«Êı¾İjsonÎÄ¼ş£¬×ª»»ÎÄ±¾
+        // è¯»å–è§’è‰²æ•°æ®jsonæ–‡ä»¶ï¼Œè½¬æ¢æ–‡æœ¬
         roleTextAsset = Resources.Load<TextAsset>(path: "Data/Role");
         roleDatas = JsonConvert.DeserializeObject<List<RoleData>>(roleTextAsset.text);
     }

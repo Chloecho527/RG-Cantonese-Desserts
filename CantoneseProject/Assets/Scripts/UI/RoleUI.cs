@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,21 +6,21 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public RoleData roleData;
     
-    [Header("×é¼ş")]
-    public Image backImage;   // µã»÷Ñ¡ÔñÈËÎïµÄ±³¾°Í¼Æ¬£¨Êó±ê»¬Èë£¬±³¾°¸ßÁÁ£©
-    public Image avatar;      // ½ÇÉ«Ñ¡ÔñµÄUIÍ·Ïñ
-    public Button button;     // ½ÇÉ«Ñ¡ÔñµÄbutton
+    [Header("ç»„ä»¶")]
+    public Image backImage;   // ç‚¹å‡»é€‰æ‹©äººç‰©çš„èƒŒæ™¯å›¾ç‰‡ï¼ˆé¼ æ ‡æ»‘å…¥ï¼ŒèƒŒæ™¯é«˜äº®ï¼‰
+    public Image avatar;      // è§’è‰²é€‰æ‹©çš„UIå¤´åƒ
+    public Button button;     // è§’è‰²é€‰æ‹©çš„button
     
 
     private void Awake()
     {
-        backImage = GetComponent<Image>();   // Ñ¡Ôñ°´Å¥±³¾°
-        avatar = transform.GetChild(0).GetComponent<Image>();   // Ñ¡Ôñ°´Å¥½ÇÉ«Í¼Ïñ
+        backImage = GetComponent<Image>();   // é€‰æ‹©æŒ‰é’®èƒŒæ™¯
+        avatar = transform.GetChild(0).GetComponent<Image>();   // é€‰æ‹©æŒ‰é’®è§’è‰²å›¾åƒ
         button = GetComponent<Button>();
     }
 
     /// <summary>
-    /// ´«Èë½ÇÉ«Êı¾İ
+    /// ä¼ å…¥è§’è‰²æ•°æ®
     /// </summary>
     /// <param name="rd"></param>
     public void SetData(RoleData rd)
@@ -33,13 +30,13 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         Sprite loadedSprite = Resources.Load<Sprite>(rd.avatarPath);
         if (loadedSprite == null)
         {
-            Debug.LogError("Í·Ïñ¼ÓÔØÊ§°Ü£¡Â·¾¶£º" + rd.avatarPath);
+            Debug.LogError("å¤´åƒåŠ è½½å¤±è´¥ï¼è·¯å¾„ï¼š" + rd.avatarPath);
         }
         
-        // ÉèÖÃÑ¡Ôñ½ÇÉ«°´Å¥µÄ½ÇÉ«Í·Ïñ
+        // è®¾ç½®é€‰æ‹©è§’è‰²æŒ‰é’®çš„è§’è‰²å¤´åƒ
         avatar.sprite = Resources.Load<Sprite>(roleData.avatarPath);
         
-        // Lambda±í´ïÊ½ µã»÷ÊÂ¼ş
+        // Lambdaè¡¨è¾¾å¼ ç‚¹å‡»äº‹ä»¶
         button.onClick.AddListener(() =>
         {
             OnButtonClicked(roleData);
@@ -47,59 +44,59 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     /// <summary>
-    /// Ñ¡Ôñ½ÇÉ«
+    /// é€‰æ‹©è§’è‰²
     /// </summary>
     /// <param name="r"></param>
     private void OnButtonClicked(RoleData r)
     {
-        // ¼ÇÂ¼ÒÑÑ¡ÔñµÄ½ÇÉ«ĞÅÏ¢
+        // è®°å½•å·²é€‰æ‹©çš„è§’è‰²ä¿¡æ¯
         GameManager.Instance.currentRole = r;
         
-        // Í¨ÖªÎäÆ÷Ñ¡ÔñÃæ°å£¬½öÏÔÊ¾¶ÔÓ¦½ÇÉ«µÄ×¨Îä
+        // é€šçŸ¥æ­¦å™¨é€‰æ‹©é¢æ¿ï¼Œä»…æ˜¾ç¤ºå¯¹åº”è§’è‰²çš„ä¸“æ­¦
         WeaponSelectPanel.Instance.FilterWeaponsByRole(r.ID); 
 
-        // ¹Ø±Õ½ÇÉ«Ñ¡ÔñUIÃæ°å
+        // å…³é—­è§’è‰²é€‰æ‹©UIé¢æ¿
         RoleSelectPanel.Instance.canvasGroup.alpha = 0;
         RoleSelectPanel.Instance.canvasGroup.blocksRaycasts = false;
         RoleSelectPanel.Instance.canvasGroup.interactable = false;
 
-        // ¿ËÂ¡½ÇÉ«Ñ¡ÔñUIÃæ°å
+        // å…‹éš†è§’è‰²é€‰æ‹©UIé¢æ¿
         GameObject go = Instantiate(RoleSelectPanel.Instance.roleDetails, WeaponSelectPanel.Instance.weaponContentTrans);
         go.transform.SetSiblingIndex(0);
         
-        // ´ò¿ªÎäÆ÷Ñ¡ÔñUIÃæ°å
+        // æ‰“å¼€æ­¦å™¨é€‰æ‹©UIé¢æ¿
         WeaponSelectPanel.Instance.canvasGroup.alpha = 1;
         WeaponSelectPanel.Instance.canvasGroup.blocksRaycasts = true;
         WeaponSelectPanel.Instance.canvasGroup.interactable = true;
     }
 
 
-    // Êó±êÒÆÈë
+    // é¼ æ ‡ç§»å…¥
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // ½ÇÉ«Í·Ïñ±³¾°¸ßÁÁ
-        // TODO ºóÆÚ¸ù¾İ»­ÃæÑÕÉ«¸ü¸Ä
+        // è§’è‰²å¤´åƒèƒŒæ™¯é«˜äº®
+        // TODO åæœŸæ ¹æ®ç”»é¢é¢œè‰²æ›´æ”¹
         backImage.color = new Color(100 / 255f, 70 / 255f, 60 / 255f);
 
-        // ¸üĞÂ½ÇÉ«Ãæ°åĞÅÏ¢
+        // æ›´æ–°è§’è‰²é¢æ¿ä¿¡æ¯
         RenewUI(roleData);
     }
     
-    // Êó±êÒÆ³ö
+    // é¼ æ ‡ç§»å‡º
     public void OnPointerExit(PointerEventData eventData)
     {
-        // ½ÇÉ«Í·Ïñ±³¾°»Ö¸´Ô­É«
-        // TODO ºóÆÚ¸ù¾İ»­ÃæÑÕÉ«¸ü¸Ä
+        // è§’è‰²å¤´åƒèƒŒæ™¯æ¢å¤åŸè‰²
+        // TODO åæœŸæ ¹æ®ç”»é¢é¢œè‰²æ›´æ”¹
         backImage.color = new Color(250 / 255f, 130 / 255f, 130 / 255f);
 
     }
 
     /// <summary>
-    /// Êó±ê»¬Èë°´Å¥£¬¸üĞÂ½ÇÉ«ĞÅÏ¢Ãæ°å
+    /// é¼ æ ‡æ»‘å…¥æŒ‰é’®ï¼Œæ›´æ–°è§’è‰²ä¿¡æ¯é¢æ¿
     /// </summary>
     public void RenewUI(RoleData r)
     {
-        // ĞŞ¸ÄÍ·Ïñ¡¢Ãû³Æ¡¢Á÷ÅÉ¡¢Ì¨´ÊÃèÊö
+        // ä¿®æ”¹å¤´åƒã€åç§°ã€æµæ´¾ã€å°è¯æè¿°
         RoleSelectPanel.Instance.roleAvatar.sprite = Resources.Load<Sprite>(r.avatarPath);
         RoleSelectPanel.Instance.roleName.text = r.name;
         RoleSelectPanel.Instance.roleFaction.text = r.faction;

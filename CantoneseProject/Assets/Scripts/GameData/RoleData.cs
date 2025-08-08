@@ -3,19 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]  // ÔÊĞíJSONĞòÁĞ»¯/·´ĞòÁĞ»¯
+[Serializable]  // å…è®¸JSONåºåˆ—åŒ–/ååºåˆ—åŒ–
 public class RoleData
 {
-    public int ID;               // ½ÇÉ«ID
+    public int ID;               // è§’è‰²ID
     
-    [Header("½ÇÉ«Ñ¡ÔñÃæ°åÊı¾İ")]
-    public string name;          // ½ÇÉ«Ãû×Ö
-    public string faction;       // Á÷ÅÉ
-    public string avatarPath;    // ½ÇÉ«Í·Ïñ
-    public string describe;      // ½ÇÉ«Ì¨´ÊºÍÊôĞÔ
-    public int slot;             // ÎäÆ÷²å²Û
+    [Header("è§’è‰²é€‰æ‹©é¢æ¿æ•°æ®")]
+    public string name;          // è§’è‰²åå­—
+    public string faction;       // æµæ´¾
+    public string avatarPath;    // è§’è‰²å¤´åƒ
+    public string describe;      // è§’è‰²å°è¯å’Œå±æ€§
+    public int slot;             // æ­¦å™¨æ’æ§½
     
-    [Header("Èâ¸ë¹Ø¿¨Êı¾İ")]
-    public string animatorController;  // ²»Í¬½ÇÉ«µÄ¶¯»­»ú
+    [Header("è‚‰é¸½å…³å¡æ•°æ®")]
+    public string animatorController;  // ä¸åŒè§’è‰²çš„åŠ¨ç”»æœº
         
 }

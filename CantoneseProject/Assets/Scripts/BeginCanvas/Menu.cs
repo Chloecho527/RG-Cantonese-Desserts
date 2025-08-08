@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// canvas: startµ½info 
+/// canvas: startåˆ°info 
 /// </summary>
 public class Menu : MonoBehaviour
 {
 
-    [Header("»­²¼ÒıÓÃ")]
+    [Header("ç”»å¸ƒå¼•ç”¨")]
     [SerializeField] private Canvas startCanvas;
     [SerializeField] private Canvas infoCanvas;
     [SerializeField] private Canvas homeCanvas;
@@ -19,7 +19,7 @@ public class Menu : MonoBehaviour
     // [SerializeField] private Canvas remindCanvas;
 
 
-    [Header("°´Å¥ÒıÓÃ")]
+    [Header("æŒ‰é’®å¼•ç”¨")]
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button exitButton;
 
@@ -27,23 +27,23 @@ public class Menu : MonoBehaviour
     {
         GameObject startCanvasObj = this.gameObject;
 
-        // »ñÈ¡»­²¼
+        // è·å–ç”»å¸ƒ
         startCanvas = startCanvasObj.GetComponent<Canvas>();
         infoCanvas = GameObject.Find("Info Canvas").GetComponent<Canvas>();
         homeCanvas = GameObject.Find("Home Canvas").GetComponent<Canvas>();
         // characterCanvas = GameObject.Find("Character Canvas").GetComponent<Canvas>();
         selectCanvas = GameObject.Find("Select Canvas").GetComponent<Canvas>();
 
-        // »ñÈ¡°´Å¥
+        // è·å–æŒ‰é’®
         newGameButton = startCanvasObj.transform.Find("NewGameBtn").GetComponent<Button>();
         exitButton = startCanvasObj.transform.Find("ExitBtn").GetComponent<Button>();
 
-        // ×¢²á°´Å¥ÊÂ¼ş
+        // æ³¨å†ŒæŒ‰é’®äº‹ä»¶
         newGameButton.onClick.AddListener(OnNewGameClicked);
         exitButton.onClick.AddListener(OnExitClicked);
     }
 
-    private void Start()   // »ñÈ¡±äÁ¿ºó£¬ÆäËûcanvasÉèÖÃ·Ç¼¤»î×´Ì¬
+    private void Start()   // è·å–å˜é‡åï¼Œå…¶ä»–canvasè®¾ç½®éæ¿€æ´»çŠ¶æ€
     {
         infoCanvas.gameObject.SetActive(false);
         homeCanvas.gameObject.SetActive(false);
@@ -53,16 +53,16 @@ public class Menu : MonoBehaviour
     }
 
     /// <summary>
-    /// ĞÂÓÎÏ·°´Å¥µã»÷ÊÂ¼ş
+    /// æ–°æ¸¸æˆæŒ‰é’®ç‚¹å‡»äº‹ä»¶
     /// </summary>
     private void OnNewGameClicked()
     {
-        // ½¥Òş½¥³öºó¼¤»î¹ÊÊÂ±³¾°½éÉÜ»­²¼
+        // æ¸éšæ¸å‡ºåæ¿€æ´»æ•…äº‹èƒŒæ™¯ä»‹ç»ç”»å¸ƒ
         LoadManager.Instance.FadeAndActivateCanvas(infoCanvas, startCanvas);
     }
 
     /// <summary>
-    /// ÍË³ö°´Å¥µã»÷ÊÂ¼ş
+    /// é€€å‡ºæŒ‰é’®ç‚¹å‡»äº‹ä»¶
     /// </summary>
     private void OnExitClicked()
     {

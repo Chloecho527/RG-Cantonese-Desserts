@@ -6,16 +6,16 @@ using UnityEngine;
 [Serializable]
 public class WeaponData
 {
-    public int ID;                              // ÎäÆ÷Î¨Ò»ID
-    public int roleID;                          // ¹ØÁªµÄ½ÇÉ«ID£¨ÓÃÓÚÉ¸Ñ¡£©
-    public string name;                         // ÎäÆ÷Ãû³Æ
-    public int isLong;                          // ÊÇ·ñÎªÔ¶³Ì¹¥»÷
-    public string iconPath;                     // ÎäÆ÷Í¼±êÂ·¾¶£¨ResourcesÏÂ£©
-    public string describe;                     // ÎäÆ÷ÃèÊö£¨Èç"Ôö¼Ó10%¹¥»÷Á¦"£©
-    public float attack;                        // ÎäÆ÷¹¥»÷Á¦
-    public int range;                           // ÎäÆ÷¹¥»÷·¶Î§
-    public float cooling;                       // ÀäÈ´Ê±³¤
-    public int repel;                           // »÷ÍËĞ§¹û
-    public float criticalStrikeProbability;     // ±©»÷¸ÅÂÊ
-    public float criticalStrikeMultiple;        // ±©»÷±¶ÂÊ
+    public int ID;                              // æ­¦å™¨å”¯ä¸€ID
+    public int roleID;                          // å…³è”çš„è§’è‰²IDï¼ˆç”¨äºç­›é€‰ï¼‰
+    public string name;                         // æ­¦å™¨åç§°
+    public int isLong;                          // æ˜¯å¦ä¸ºè¿œç¨‹æ”»å‡»
+    public string iconPath;                     // æ­¦å™¨å›¾æ ‡è·¯å¾„ï¼ˆResourcesä¸‹ï¼‰
+    public string describe;                     // æ­¦å™¨æè¿°ï¼ˆå¦‚"å¢åŠ 10%æ”»å‡»åŠ›"ï¼‰
+    public float attack;                        // æ­¦å™¨æ”»å‡»åŠ›
+    public int range;                           // æ­¦å™¨æ”»å‡»èŒƒå›´
+    public float cooling;                       // å†·å´æ—¶é•¿
+    public int repel;                           // å‡»é€€æ•ˆæœ
+    public float criticalStrikeProbability;     // æš´å‡»æ¦‚ç‡
+    public float criticalStrikeMultiple;        // æš´å‡»å€ç‡
 }

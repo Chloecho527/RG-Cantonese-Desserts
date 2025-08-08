@@ -7,10 +7,10 @@ public class WeaponUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public WeaponData weaponData;
     
-    [Header("×é¼ş")]
-    public Image backImage;   // µã»÷Ñ¡ÔñÎäÆ÷µÄ±³¾°Í¼Æ¬£¨Êó±ê»¬Èë£¬±³¾°¸ßÁÁ£©
-    public Image icon;        // ÎäÆ÷Ñ¡ÔñµÄUIÍ¼±ê
-    public Button button;     // ÎäÆ÷Ñ¡ÔñµÄbutton
+    [Header("ç»„ä»¶")]
+    public Image backImage;   // ç‚¹å‡»é€‰æ‹©æ­¦å™¨çš„èƒŒæ™¯å›¾ç‰‡ï¼ˆé¼ æ ‡æ»‘å…¥ï¼ŒèƒŒæ™¯é«˜äº®ï¼‰
+    public Image icon;        // æ­¦å™¨é€‰æ‹©çš„UIå›¾æ ‡
+    public Button button;     // æ­¦å™¨é€‰æ‹©çš„button
     
     
     private void Awake()
@@ -21,7 +21,7 @@ public class WeaponUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     /// <summary>
-    /// ´«ÈëÎäÆ÷Êı¾İ
+    /// ä¼ å…¥æ­¦å™¨æ•°æ®
     /// </summary>
     /// <param name="wd"></param>
     public void SetData(WeaponData wd)
@@ -30,7 +30,7 @@ public class WeaponUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         
         icon.sprite = Resources.Load<Sprite>(weaponData.iconPath);
         
-        //µã»÷ÊÂ¼ş
+        //ç‚¹å‡»äº‹ä»¶
         button.onClick.AddListener(() =>
         {
             OnButtonClicked(weaponData);
@@ -38,60 +38,60 @@ public class WeaponUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     
     /// <summary>
-    /// µã»÷Ñ¡ÔñÎäÆ÷
+    /// ç‚¹å‡»é€‰æ‹©æ­¦å™¨
     /// </summary>
     /// <param name="w"></param>
     private void OnButtonClicked(WeaponData w)
     {
-        // ¼ÇÂ¼µ±Ç°ÎäÆ÷
+        // è®°å½•å½“å‰æ­¦å™¨
         GameManager.Instance.currentWeapon = w;
         
-        // ¿ËÂ¡UI
+        // å…‹éš†UI
         GameObject weapon_clone = Instantiate(WeaponSelectPanel.Instance.weaponDetails, MapSelectPanel.Instance.mapContentTrans);
         weapon_clone.transform.SetSiblingIndex(0);
         GameObject role_clone = Instantiate(RoleSelectPanel.Instance.roleDetails, MapSelectPanel.Instance.mapContentTrans);
         role_clone.transform.SetSiblingIndex(0);
         
-        // ¹Ø±ÕÎäÆ÷Ñ¡ÔñUIÃæ°å
+        // å…³é—­æ­¦å™¨é€‰æ‹©UIé¢æ¿
         WeaponSelectPanel.Instance.canvasGroup.alpha = 0;
         WeaponSelectPanel.Instance.canvasGroup.blocksRaycasts = false;
         WeaponSelectPanel.Instance.canvasGroup.interactable = false;
         
-        // ´ò¿ªµØÍ¼Ñ¡ÔñUIÃæ°å
+        // æ‰“å¼€åœ°å›¾é€‰æ‹©UIé¢æ¿
         MapSelectPanel.Instance.canvasGroup.alpha = 1;
         MapSelectPanel.Instance.canvasGroup.blocksRaycasts = true;
         MapSelectPanel.Instance.canvasGroup.interactable = true;
     }
     
-    // Êó±êÒÆÈë
+    // é¼ æ ‡ç§»å…¥
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // ÎäÆ÷Í¼±ê±³¾°¸ßÁÁ
-        // TODO ºóÆÚ¸ù¾İ»­ÃæÑÕÉ«¸ü¸Ä
+        // æ­¦å™¨å›¾æ ‡èƒŒæ™¯é«˜äº®
+        // TODO åæœŸæ ¹æ®ç”»é¢é¢œè‰²æ›´æ”¹
         backImage.color = new Color(100 / 255f, 70 / 255f, 60 / 255f);
         
-        // ¸üĞÂÎäÆ÷Ãæ°åĞÅÏ¢
+        // æ›´æ–°æ­¦å™¨é¢æ¿ä¿¡æ¯
         RenewUI(weaponData);
     }
 
-    // Êó±êÒÆ³ö
+    // é¼ æ ‡ç§»å‡º
     public void OnPointerExit(PointerEventData eventData)
     {
-        // ÎäÆ÷Í¼±ê±³¾°»Ö¸´Ô­É«
-        // TODO ºóÆÚ¸ù¾İ»­ÃæÑÕÉ«¸ü¸Ä
+        // æ­¦å™¨å›¾æ ‡èƒŒæ™¯æ¢å¤åŸè‰²
+        // TODO åæœŸæ ¹æ®ç”»é¢é¢œè‰²æ›´æ”¹
         backImage.color = new Color(250 / 255f, 130 / 255f, 130 / 255f);
     }
 
     /// <summary>
-    /// Êó±ê»¬Èë°´Å¥£¬¸üĞÂÎäÆ÷ĞÅÏ¢Ãæ°å
+    /// é¼ æ ‡æ»‘å…¥æŒ‰é’®ï¼Œæ›´æ–°æ­¦å™¨ä¿¡æ¯é¢æ¿
     /// </summary>
     /// <param name="w"></param>
     public void RenewUI(WeaponData w)
     {
-        // ĞŞ¸ÄÍ¼±ê¡¢Ãû³Æ¡¢ÎäÆ÷ÀàĞÍ¡¢ÎäÆ÷ÃèÊö
+        // ä¿®æ”¹å›¾æ ‡ã€åç§°ã€æ­¦å™¨ç±»å‹ã€æ­¦å™¨æè¿°
         WeaponSelectPanel.Instance.weaponIcon.sprite = Resources.Load<Sprite>(w.iconPath);
         WeaponSelectPanel.Instance.weaponName.text = w.name;
-        WeaponSelectPanel.Instance.weaponType.text = w.isLong == 0 ? "½üÕ½" : "Ô¶¹¥";
+        WeaponSelectPanel.Instance.weaponType.text = w.isLong == 0 ? "è¿‘æˆ˜" : "è¿œæ”»";
         WeaponSelectPanel.Instance.weaponDescribe.text = w.describe;
     }
 }

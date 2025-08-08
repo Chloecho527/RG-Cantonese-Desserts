@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// canvas: home到select 
+/// canvas: home鍒皊elect 
 /// </summary>
 public class Home : MonoBehaviour
 {
@@ -27,7 +27,7 @@ public class Home : MonoBehaviour
         RGBtn = homeCanvasObj.transform.Find("RG Btn").GetComponent<Button>();
         memoryBtn = homeCanvasObj.transform.Find("Memory Btn").GetComponent<Button>();
 
-        // 注册按钮事件
+        // 娉ㄥ唽鎸夐挳浜嬩欢
         RGBtn.onClick.AddListener(OnRGBtnClicked);
         memoryBtn.onClick.AddListener(OnMemoryBtnClicked);
 
@@ -35,7 +35,7 @@ public class Home : MonoBehaviour
     }
 
     /// <summary>
-    /// 点击rg按钮事件，家canvas跳转到肉鸽选择canvas
+    /// 鐐瑰嚮rg鎸夐挳浜嬩欢锛屽canvas璺宠浆鍒拌倝楦介�夋嫨canvas
     /// </summary>
     private void OnRGBtnClicked()
     {
@@ -43,7 +43,7 @@ public class Home : MonoBehaviour
     }
 
     /// <summary>
-    /// 点击回忆按钮事件，家canvas跳转到肉鸽选择canvas
+    /// 鐐瑰嚮鍥炲繂鎸夐挳浜嬩欢锛屽canvas璺宠浆鍒拌倝楦介�夋嫨canvas
     /// </summary>
     private void OnMemoryBtnClicked()
     {

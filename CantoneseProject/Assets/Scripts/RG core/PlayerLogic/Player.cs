@@ -4,19 +4,19 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
     
-    [Header("»ù±¾ÊôĞÔ")]
-    public float speed = 5f;     // TEST ËÙ¶ÈÔİÊ±Îª 5
-    public float hp = 15f;       // µ±Ç°ÉúÃüÖµ
-    public float maxHp = 15f;    // ×î´óÉúÃüÖµ
-    public float exp = 0;        // TEST µ±Ç°¾­ÑéÖµ
+    [Header("åŸºæœ¬å±æ€§")]
+    public float speed = 5f;     // TEST é€Ÿåº¦æš‚æ—¶ä¸º 5
+    public float hp = 15f;       // å½“å‰ç”Ÿå‘½å€¼
+    public float maxHp = 15f;    // æœ€å¤§ç”Ÿå‘½å€¼
+    public float exp = 0;        // TEST å½“å‰ç»éªŒå€¼
     
-    [Header("×´Ì¬")]
-    public bool isDead = false;      // ÊÇ·ñËÀÍö
+    [Header("çŠ¶æ€")]
+    public bool isDead = false;      // æ˜¯å¦æ­»äº¡
     
-    [Header("½Å±¾×é¼ş»ñÈ¡")]
-    public Animator anim;                  // ¶¯»­»ú
-    public Transform playerSpriteTrans;    // ½ÇÉ«spriteÎ»ÖÃ
-    public int money = 30;                 // µ±Ç°½ğ±Ò
+    [Header("è„šæœ¬ç»„ä»¶è·å–")]
+    public Animator anim;                  // åŠ¨ç”»æœº
+    public Transform playerSpriteTrans;    // è§’è‰²spriteä½ç½®
+    public int money = 30;                 // å½“å‰é‡‘å¸
 
     
     private void Awake()
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         playerSpriteTrans = GameObject.Find("PlayerSprite").transform;
         anim = playerSpriteTrans.GetComponent<Animator>();
         
-        // TEST ¶ÔÓ¦½ÇÉ«µÄ¶¯»­
+        // TEST å¯¹åº”è§’è‰²çš„åŠ¨ç”»
         if (!string.IsNullOrEmpty(GameManager.Instance.currentRole.animatorController))
         {
             RuntimeAnimatorController controller = Resources.Load<RuntimeAnimatorController>(GameManager.Instance.currentRole.animatorController);
@@ -57,13 +57,13 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// ³Ô½ğ±Ò
+    /// åƒé‡‘å¸
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("jinbi?");
-        if (other.CompareTag("Money"))   // ³Ô½ğ±Ò
+        if (other.CompareTag("Money"))   // åƒé‡‘å¸
         {
             Destroy(other.gameObject);
             money += 1;
@@ -72,18 +72,18 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// wasd ÒÆ¶¯
+    /// wasd ç§»åŠ¨
     /// </summary>
     public void Move()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");  // 1 »ò -1
+        float moveHorizontal = Input.GetAxis("Horizontal");  // 1 æˆ– -1
         float moveVertical = Input.GetAxis("Vertical");
         
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         movement.Normalize();
         transform.Translate(movement * speed * Time.deltaTime);
         
-        // ¶¯»­»ú£¬ÅĞ¶Ï½ÇÉ«ÊÇ·ñÒÆ¶¯
+        // åŠ¨ç”»æœºï¼Œåˆ¤æ–­è§’è‰²æ˜¯å¦ç§»åŠ¨
         if (anim != null)
         {
             if (movement.magnitude != 0 )
@@ -101,28 +101,28 @@ public class Player : MonoBehaviour
     }
     
     /// <summary>
-    /// sprite·­×ª
+    /// spriteç¿»è½¬
     /// </summary>
     /// <param name="h"></param>
     public void TurnAround(float h)
     {
-        if (h < 0)        //  TEST localScaleÔİÊ±Îª 5£¬ºóĞøµ÷Õû
+        if (h < 0)        //  TEST localScaleæš‚æ—¶ä¸º 5ï¼Œåç»­è°ƒæ•´
         {
             playerSpriteTrans.localScale = new Vector3(-5, playerSpriteTrans.localScale.y, playerSpriteTrans.localScale.z);
         }
-        else if (h > 0)   //  TEST localScaleÔİÊ±Îª 5£¬ºóĞøµ÷Õû
+        else if (h > 0)   //  TEST localScaleæš‚æ—¶ä¸º 5ï¼Œåç»­è°ƒæ•´
         {
             playerSpriteTrans.localScale = new Vector3(5, playerSpriteTrans.localScale.y, playerSpriteTrans.localScale.z);
         }
     }
     
-    // TODO ¹¥»÷
+    // TODO æ”»å‡»
     public void PlayerAttack()
     {
         
     }
     
-    // TODO ÊÜÉË
+    // TODO å—ä¼¤
     public void PlayerInjured(float enemyATK)
     {
         if (isDead)
@@ -130,7 +130,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        // ÅĞ¶Ï±¾´Î¹¥»÷ÊÇ·ñËÀÍö
+        // åˆ¤æ–­æœ¬æ¬¡æ”»å‡»æ˜¯å¦æ­»äº¡
         if (hp - enemyATK <= 0)
         {
             hp = 0;
@@ -141,17 +141,17 @@ public class Player : MonoBehaviour
             hp -= enemyATK;
         }
         
-        //¸üĞÂÑªÌõ
+        //æ›´æ–°è¡€æ¡
         GamePanel.Instance.RenewHp();
     }
     
-    // TODO ËÀÍö
+    // TODO æ­»äº¡
     public void PlayerDead()
     {
         isDead = true;
         anim.speed = 0f;
         
-        // µ÷ÓÃÓÎÏ·Ê§°Üº¯Êı
+        // è°ƒç”¨æ¸¸æˆå¤±è´¥å‡½æ•°
         LevelController.Instance.FailGame();
     }
 }

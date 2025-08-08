@@ -5,35 +5,35 @@ using UnityEngine.UI;
 
 public class LoadManager : Singleton<LoadManager>
 {
-    [Header("×ª³¡ÉèÖÃ")]
-    [SerializeField] private Canvas fadeCanvas; // ×ª³¡ÓÃµÄ»­²¼
-    [SerializeField] private Image transitionImage; // ×ª³¡ÓÃµÄÍ¼Æ¬
-    [SerializeField] private float fadeDuration = 0.5f; // µ­Èëµ­³ö³ÖĞøÊ±¼ä
+    [Header("è½¬åœºè®¾ç½®")]
+    [SerializeField] private Canvas fadeCanvas; // è½¬åœºç”¨çš„ç”»å¸ƒ
+    [SerializeField] private Image transitionImage; // è½¬åœºç”¨çš„å›¾ç‰‡
+    [SerializeField] private float fadeDuration = 0.5f; // æ·¡å…¥æ·¡å‡ºæŒç»­æ—¶é—´
 
-    private Color transparent = new Color(1, 1, 1, 0); // ÍêÈ«Í¸Ã÷
-    private Color opaque = new Color(1, 1, 1, 1); // ÍêÈ«²»Í¸Ã÷
+    private Color transparent = new Color(1, 1, 1, 0); // å®Œå…¨é€æ˜
+    private Color opaque = new Color(1, 1, 1, 1); // å®Œå…¨ä¸é€æ˜
 
     protected override void Awake()
     {
         base.Awake();
 
-        // ³õÊ¼»¯×ª³¡»­²¼×´Ì¬
+        // åˆå§‹åŒ–è½¬åœºç”»å¸ƒçŠ¶æ€
         if (fadeCanvas != null)
         {
             fadeCanvas.enabled = true;
-            fadeCanvas.worldCamera = Camera.main; // È·±£UI¿É¼û
+            fadeCanvas.worldCamera = Camera.main; // ç¡®ä¿UIå¯è§
         }
 
-        // È·±£×ª³¡Í¼Æ¬³õÊ¼×´Ì¬ÊÇÍ¸Ã÷µÄ
+        // ç¡®ä¿è½¬åœºå›¾ç‰‡åˆå§‹çŠ¶æ€æ˜¯é€æ˜çš„
         if (transitionImage != null)
         {
             transitionImage.color = transparent;
-            transitionImage.raycastTarget = false; // ³õÊ¼²»×èµ²µã»÷
+            transitionImage.raycastTarget = false; // åˆå§‹ä¸é˜»æŒ¡ç‚¹å‡»
         }
     }
 
     /// <summary>
-    /// ½¥ÒşÏÔÊ¾×ª³¡Í¼Æ¬£¬È»ºó¼¤»îÄ¿±ê»­²¼
+    /// æ¸éšæ˜¾ç¤ºè½¬åœºå›¾ç‰‡ï¼Œç„¶åæ¿€æ´»ç›®æ ‡ç”»å¸ƒ
     /// </summary>
     public void FadeAndActivateCanvas(Canvas targetCanvas, Canvas currentCanvas)
     {
@@ -41,7 +41,7 @@ public class LoadManager : Singleton<LoadManager>
     }
 
     /// <summary>
-    /// ½¥ÒşÏÔÊ¾×ª³¡Í¼Æ¬£¬È»ºó¼ÓÔØÖ¸¶¨µØÍ¼
+    /// æ¸éšæ˜¾ç¤ºè½¬åœºå›¾ç‰‡ï¼Œç„¶ååŠ è½½æŒ‡å®šåœ°å›¾
     /// </summary>
     public void FadeAndLoadMap(string mapSceneName)
     {
@@ -49,15 +49,15 @@ public class LoadManager : Singleton<LoadManager>
     }
 
     /// <summary>
-    /// »­²¼ÇĞ»»µÄ½¥Òş½¥³öĞ­³Ì
+    /// ç”»å¸ƒåˆ‡æ¢çš„æ¸éšæ¸å‡ºåç¨‹
     /// </summary>
     private IEnumerator FadeTransitionRoutine(Canvas currentCanvas, Canvas targetCanvas, string sceneToLoad)
     {
-        // ¿ªÊ¼½¥Òş - ÏÔÊ¾×ª³¡Í¼Æ¬
-        transitionImage.raycastTarget = true; // ×èµ²µã»÷
+        // å¼€å§‹æ¸éš - æ˜¾ç¤ºè½¬åœºå›¾ç‰‡
+        transitionImage.raycastTarget = true; // é˜»æŒ¡ç‚¹å‡»
         yield return StartCoroutine(FadeRoutine(transparent, opaque));
 
-        // ´¦Àí»­²¼ÇĞ»»
+        // å¤„ç†ç”»å¸ƒåˆ‡æ¢
         if (currentCanvas != null)
             ////// currentCanvas.enabled = false;
             currentCanvas.gameObject.SetActive(false);
@@ -68,35 +68,35 @@ public class LoadManager : Singleton<LoadManager>
             ////// targetCanvas.enabled = true;
         }
            
-        // ¿ªÊ¼½¥³ö - Òş²Ø×ª³¡Í¼Æ¬
+        // å¼€å§‹æ¸å‡º - éšè—è½¬åœºå›¾ç‰‡
         yield return StartCoroutine(FadeRoutine(opaque, transparent));
-        transitionImage.raycastTarget = false; // ÔÊĞíµã»÷
+        transitionImage.raycastTarget = false; // å…è®¸ç‚¹å‡»
     }
 
     /// <summary>
-    /// ³¡¾°¼ÓÔØµÄ½¥Òş½¥³öĞ­³Ì
+    /// åœºæ™¯åŠ è½½çš„æ¸éšæ¸å‡ºåç¨‹
     /// </summary>
     private IEnumerator FadeAndLoadSceneRoutine(string mapSceneName)
     {
-        // ¿ªÊ¼½¥Òş - ÏÔÊ¾×ª³¡Í¼Æ¬
+        // å¼€å§‹æ¸éš - æ˜¾ç¤ºè½¬åœºå›¾ç‰‡
         transitionImage.raycastTarget = true;
         yield return StartCoroutine(FadeRoutine(transparent, opaque));
         
-        // ½öĞ¶ÔØMenuScene£¨²»É¾³ı³¡¾°Êı¾İ£¬±£ÁôÖØĞÂ¼ÓÔØµÄ¿ÉÄÜĞÔ£©
+        // ä»…å¸è½½MenuSceneï¼ˆä¸åˆ é™¤åœºæ™¯æ•°æ®ï¼Œä¿ç•™é‡æ–°åŠ è½½çš„å¯èƒ½æ€§ï¼‰
         if (SceneManager.GetSceneByName("MenuScene").isLoaded)
         {
             yield return SceneManager.UnloadSceneAsync("MenuScene");
         }
 
-        // ¼ÓÔØµØÍ¼³¡¾°
+        // åŠ è½½åœ°å›¾åœºæ™¯
         yield return SceneManager.LoadSceneAsync(mapSceneName, LoadSceneMode.Additive);
 
-        // ÉèÖÃĞÂ³¡¾°Îª»î¶¯³¡¾°
+        // è®¾ç½®æ–°åœºæ™¯ä¸ºæ´»åŠ¨åœºæ™¯
         Scene newScene = SceneManager.GetSceneByName(mapSceneName);
         if (newScene.isLoaded)
             SceneManager.SetActiveScene(newScene);
 
-        // ¿ªÊ¼½¥³ö - Òş²Ø×ª³¡Í¼Æ¬
+        // å¼€å§‹æ¸å‡º - éšè—è½¬åœºå›¾ç‰‡
         yield return StartCoroutine(FadeRoutine(opaque, transparent));
         transitionImage.raycastTarget = false;
     }
@@ -105,7 +105,7 @@ public class LoadManager : Singleton<LoadManager>
     
 
     // /// <summary>
-    // /// ´ÓµØÍ¼·µ»Ø¼Ò½çÃæµÄ·½·¨
+    // /// ä»åœ°å›¾è¿”å›å®¶ç•Œé¢çš„æ–¹æ³•
     // /// </summary>
     // public void ReturnToMainMenu(string currentMapSceneName)
     // {
@@ -113,27 +113,27 @@ public class LoadManager : Singleton<LoadManager>
     // }
     //
     // /// <summary>
-    // /// ·µ»Ø¼Ò½çÃæµÄĞ­³Ì
+    // /// è¿”å›å®¶ç•Œé¢çš„åç¨‹
     // /// </summary>
     // private IEnumerator ReturnToMainMenuRoutine(string currentMapSceneName)
     // {
-    //     // ½¥ÒşĞ§¹û
+    //     // æ¸éšæ•ˆæœ
     //     transitionImage.raycastTarget = true;
     //     yield return StartCoroutine(FadeRoutine(transparent, opaque));
     //
-    //     // Ğ¶ÔØµ±Ç°µØÍ¼³¡¾°
+    //     // å¸è½½å½“å‰åœ°å›¾åœºæ™¯
     //     if (SceneManager.GetSceneByName(currentMapSceneName).isLoaded)
     //     {
     //         yield return SceneManager.UnloadSceneAsync(currentMapSceneName);
     //     }
     //
-    //     // ÖØĞÂ¼ÓÔØMenuScene
+    //     // é‡æ–°åŠ è½½MenuScene
     //     yield return SceneManager.LoadSceneAsync("MenuScene", LoadSceneMode.Additive);
     //     Scene menuScene = SceneManager.GetSceneByName("MenuScene");
     //     if (menuScene.isLoaded)
     //     {
     //         SceneManager.SetActiveScene(menuScene);
-    //         // ¼¤»îStartCanvas£¨¼ÙÉèÖ÷½çÃæ»­²¼ÃûÎªStartCanvas£©
+    //         // æ¿€æ´»StartCanvasï¼ˆå‡è®¾ä¸»ç•Œé¢ç”»å¸ƒåä¸ºStartCanvasï¼‰
     //         Canvas startCanvas = GameObject.FindObjectOfType<Menu>().GetComponent<Canvas>();
     //         if (startCanvas != null)
     //         {
@@ -141,7 +141,7 @@ public class LoadManager : Singleton<LoadManager>
     //         }
     //     }
     //
-    //     // ½¥³öĞ§¹û
+    //     // æ¸å‡ºæ•ˆæœ
     //     yield return StartCoroutine(FadeRoutine(opaque, transparent));
     //     transitionImage.raycastTarget = false;
     // }
@@ -151,7 +151,7 @@ public class LoadManager : Singleton<LoadManager>
 
 
     /// <summary>
-    /// ½¥Òş½¥³öµÄ¾ßÌåÊµÏÖ
+    /// æ¸éšæ¸å‡ºçš„å…·ä½“å®ç°
     /// </summary>
     private IEnumerator FadeRoutine(Color startColor, Color endColor)
     {
@@ -166,7 +166,7 @@ public class LoadManager : Singleton<LoadManager>
             yield return null;
         }
 
-        transitionImage.color = endColor; // È·±£×îÖÕ×´Ì¬ÕıÈ·
+        transitionImage.color = endColor; // ç¡®ä¿æœ€ç»ˆçŠ¶æ€æ­£ç¡®
     }
 
 }

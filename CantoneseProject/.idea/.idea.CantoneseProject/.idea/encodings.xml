@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/Home.cs" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/InfoSkip.cs" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/Menu.cs" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/RoleSelectPanel.cs" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/RoleUI.cs" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/WeaponSelectPanel.cs" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/WeaponUI.cs" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/Manager/LoadManager.cs" charset="GBK" />
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/Home.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/InfoSkip.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/MapSelectPanel.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/Menu.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/RoleSelectPanel.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/BeginCanvas/WeaponSelectPanel.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/GameData/EnemyData.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/GameData/LevelData.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/GameData/RoleData.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/GameData/WeaponData.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Manager/AudioManager.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Manager/LoadManager.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/RG core/EnemiesLogic/m1/Enemy_1_1.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/RG core/PlayerLogic/Player.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/RG core/RG Panel/GamePanel.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/UI/MapUI.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/UI/RoleUI.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Utilities/EventHandler.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Utilities/Singleton.cs" charset="UTF-8" />
   </component>
 </project>

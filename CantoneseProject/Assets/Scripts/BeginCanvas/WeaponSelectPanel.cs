@@ -6,43 +6,43 @@ using UnityEngine.UI;
 
 public class WeaponSelectPanel : Singleton<WeaponSelectPanel>
 {
-    [Header("ÎäÆ÷Êı¾İ")]
+    [Header("æ­¦å™¨æ•°æ®")]
     public List<WeaponData> weaponDatas = new List<WeaponData>();
     public TextAsset weaponTextAsset;
     
-    [Header("×é¼şºÍÎïÌå")]
-    public Transform weaponList;                // ³¡¾°ÖĞµÄ¸¸ÎïÌåRoleList
+    [Header("ç»„ä»¶å’Œç‰©ä½“")]
+    public Transform weaponList;                // åœºæ™¯ä¸­çš„çˆ¶ç‰©ä½“RoleList
     public GameObject weaponPrefab;
     public CanvasGroup canvasGroup;
     public GameObject weaponDetails;
     public Transform weaponContentTrans;
     
-    [Header("ÓÃÓÚÊó±ê»¬ÈëÊ±½ÇÉ«ĞÅÏ¢¸üĞÂµÄUI×é¼ş")]
-    public TextMeshProUGUI weaponName;          // ÎäÆ÷Ãû³Æ
+    [Header("ç”¨äºé¼ æ ‡æ»‘å…¥æ—¶è§’è‰²ä¿¡æ¯æ›´æ–°çš„UIç»„ä»¶")]
+    public TextMeshProUGUI weaponName;          // æ­¦å™¨åç§°
 
-    public TextMeshProUGUI weaponType;          // ÎäÆ÷ÀàĞÍ£¨½üorÔ¶£©
-    public Image weaponIcon;                    // ÎäÆ÷Í¼±ê
-    public TextMeshProUGUI weaponDescribe;      // ÎäÆ÷ÊôĞÔ
+    public TextMeshProUGUI weaponType;          // æ­¦å™¨ç±»å‹ï¼ˆè¿‘orè¿œï¼‰
+    public Image weaponIcon;                    // æ­¦å™¨å›¾æ ‡
+    public TextMeshProUGUI weaponDescribe;      // æ­¦å™¨å±æ€§
     
     
     protected override void Awake()
     {
-        // »ñÈ¡Ô¤ÖÆÌåĞÅÏ¢
+        // è·å–é¢„åˆ¶ä½“ä¿¡æ¯
         weaponList = GameObject.Find("WeaponList").transform; 
-        weaponPrefab = Resources.Load<GameObject>(path: "Prefabs/Weapon");   // ½ÇÉ«Ô¤ÖÆÌå
+        weaponPrefab = Resources.Load<GameObject>(path: "Prefabs/Weapon");   // è§’è‰²é¢„åˆ¶ä½“
         
-        // ¶ÁÈ¡ÎäÆ÷Êı¾İjsonÎÄ¼ş£¬×ª»»ÎÄ±¾
+        // è¯»å–æ­¦å™¨æ•°æ®jsonæ–‡ä»¶ï¼Œè½¬æ¢æ–‡æœ¬
         weaponTextAsset = Resources.Load<TextAsset>(path: "Data/Weapon");
         weaponDatas = JsonConvert.DeserializeObject<List<WeaponData>>(weaponTextAsset.text);
         
-        // ×é¼ş»ñÈ¡
+        // ç»„ä»¶è·å–
         weaponName = GameObject.Find("WeaponName").GetComponent<TextMeshProUGUI>();
         weaponType = GameObject.Find("WeaponType").GetComponent<TextMeshProUGUI>();
         weaponIcon = GameObject.Find("WeaponIcon").GetComponent<Image>();
         weaponDescribe = GameObject.Find("WeaponDescribe").GetComponent<TextMeshProUGUI>();
         canvasGroup = this.gameObject.GetComponent<CanvasGroup>();
         weaponContentTrans = GameObject.Find("WeaponContent").transform;
-        // RoleUIÒªÓÃµ½
+        // RoleUIè¦ç”¨åˆ°
         weaponDetails = GameObject.Find("WeaponDetails");
     }
 
@@ -56,21 +56,21 @@ public class WeaponSelectPanel : Singleton<WeaponSelectPanel>
     // }
 
     /// <summary>
-    /// Ñ¡Ôñ½ÇÉ«ºó½öÏÔÊ¾×¨Îä
+    /// é€‰æ‹©è§’è‰²åä»…æ˜¾ç¤ºä¸“æ­¦
     /// </summary>
     /// <param name="rID"></param>
     public void FilterWeaponsByRole(int roleID)
     {
-        // // Çå¿ÕÏÖÓĞÎäÆ÷UI(È«ÎäÆ÷)
+        // // æ¸…ç©ºç°æœ‰æ­¦å™¨UI(å…¨æ­¦å™¨)
         // foreach (Transform child in weaponList)
         // {
         //     Destroy(child.gameObject);
         // }
 
-        // É¸Ñ¡³öµ±Ç°½ÇÉ«µÄ×¨Îä£¨roleIDÆ¥ÅäµÄÎäÆ÷£©
+        // ç­›é€‰å‡ºå½“å‰è§’è‰²çš„ä¸“æ­¦ï¼ˆroleIDåŒ¹é…çš„æ­¦å™¨ï¼‰
         List<WeaponData> roleWeapons = weaponDatas.FindAll(w => w.roleID == roleID);
 
-        // Éú³ÉÉ¸Ñ¡ºóµÄÎäÆ÷UI
+        // ç”Ÿæˆç­›é€‰åçš„æ­¦å™¨UI
         foreach (WeaponData weaponData in roleWeapons)
         {
             WeaponUI weaponUI = Instantiate(weaponPrefab, weaponList).GetComponent<WeaponUI>();
