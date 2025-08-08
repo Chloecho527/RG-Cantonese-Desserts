@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    [Header("»ù´¡ÊôÐÔ")]
-    public float hp;            // ÑªÁ¿
-    public float speed;         // ÒÆ¶¯ËÙ¶È
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    public float hp;            // Ñªï¿½ï¿½
+    public float speed;         // ï¿½Æ¶ï¿½ï¿½Ù¶ï¿½
     
-    [Header("¹¥»÷ÊôÐÔ")]
-    public bool isContact = false;      // ÊÇ·ñ½Ó´¥µ½Íæ¼Ò
-    public bool isCooling = false;      // ÊÇ·ñ´¦ÓÚ¹¥»÷ÀäÈ´ÆÚ¼ä
-    public float damage;                // ¹¥»÷Á¦
-    public float attackTime;            // ¹¥»÷¼ä¸ô
-    public float atkTimer = 0;          // ¹¥»÷¼ÆÊ±Æ÷
-    public bool isLittleEnemy;          // ÊÇ·ñÎªÐ¡¹Ö
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    public bool isContact = false;      // ï¿½Ç·ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public bool isCooling = false;      // ï¿½Ç·ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½Ú¼ï¿½
+    public float damage;                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float attackTime;            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float atkTimer = 0;          // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    public bool isLittleEnemy;          // ï¿½Ç·ï¿½ÎªÐ¡ï¿½ï¿½
     
-    [Header("ËÀÍöÊôÐÔ")]
-    public int provideExp = 1;              // ±»»÷É±ºóÌá¹©µÄ¾­ÑéÖµ
-    public GameObject money_prefab;         // ±»»÷É±ºóµôÂä½ð±ÒÔ¤ÖÆÌå
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    public int provideExp = 1;              // ï¿½ï¿½ï¿½ï¿½É±ï¿½ï¿½ï¿½á¹©ï¿½Ä¾ï¿½ï¿½ï¿½Öµ
+    public GameObject money_prefab;         // ï¿½ï¿½ï¿½ï¿½É±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½
     
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class EnemyBase : MonoBehaviour
     {
         EnemyMove();
         
-        // ¹¥»÷
+        // ï¿½ï¿½ï¿½ï¿½
         if(isContact && !isCooling) 
         {
             EnemyAttack();
@@ -59,7 +59,7 @@ public class EnemyBase : MonoBehaviour
     }
     
     /// <summary>
-    /// Ð¡¹Ö£º½Ó´¥ÔòÔì³ÉÉËº¦
+    /// Ð¡ï¿½Ö£ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
@@ -70,7 +70,7 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    // TODO ×Ô¶¯ÒÆ¶¯
+    // TODO ï¿½Ô¶ï¿½ï¿½Æ¶ï¿½
     public void EnemyMove()
     {
         Vector2 direction =(Vector2)(Player.Instance.transform.position - this.transform.position).normalized;
@@ -79,28 +79,28 @@ public class EnemyBase : MonoBehaviour
         EnemyTurnAround();
     }
     
-    // TODO ×Ô¶¯×ªÏò
+    // TODO ï¿½Ô¶ï¿½×ªï¿½ï¿½
     public void EnemyTurnAround()
     {
-        // Íæ¼ÒÔÚ¹ÖÎïÓÒ±ß
+        // ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½Ò±ï¿½
         if (Player.Instance.transform.position.x - transform.position.x >= 0.1)
         {
-            //¹ÖÎïÏòÓÒ¿´
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¿ï¿½
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x ), transform.localScale.y, transform.localScale.z);
         }
         
         else if (Player.Instance.transform.position.x - transform.position.x < 0.1)
         {
-            //¹ÖÎïÏò×ó¿´
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x ), transform.localScale.y, transform.localScale.z);
     
         }
     }
     
-    // TODO ¹¥»÷
+    // TODO ï¿½ï¿½ï¿½ï¿½
     public void EnemyAttack()
     {
-        //Èç¹û´¦ÓÚ¹¥»÷ÀäÈ´ÆÚ¼ä, Ôò·µ»Ø
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½Ú¼ï¿½, ï¿½ò·µ»ï¿½
         if (isCooling)
         {
             return;
@@ -108,12 +108,12 @@ public class EnemyBase : MonoBehaviour
 
         Player.Instance.PlayerInjured(damage);
 
-        //¹¥»÷½øÈëÀäÈ´
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´
         isCooling = true;
         atkTimer = attackTime;  
     }
     
-    // TODO ÊÜÉË
+    // TODO ï¿½ï¿½ï¿½ï¿½
     public void EnemyInjured(float enemyATK)
     {
         // if (isDead)
@@ -121,7 +121,7 @@ public class EnemyBase : MonoBehaviour
         //     return;
         // }
 
-        // ÅÐ¶Ï±¾´Î±»¹¥»÷ÊÇ·ñËÀÍö
+        // ï¿½Ð¶Ï±ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
         if (hp - enemyATK <= 0)
         {
             hp = 0;
@@ -133,17 +133,17 @@ public class EnemyBase : MonoBehaviour
         }
     }
     
-    // TODO ËÀÍö
+    // TODO ï¿½ï¿½ï¿½ï¿½
     public void EnemyDead()
     {
-        // Ôö¼ÓÍæ¼Ò¾­ÑéÖµ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¾ï¿½ï¿½ï¿½Öµ
         Player.Instance.exp += provideExp;
         GamePanel.Instance.RenewExp();
         
-        // µôÂä½ð±Ò
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Instantiate(money_prefab, transform.position, Quaternion.identity);
         
-        // Ïú»Ù×ÔÉí
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Destroy(gameObject);
     }
 }

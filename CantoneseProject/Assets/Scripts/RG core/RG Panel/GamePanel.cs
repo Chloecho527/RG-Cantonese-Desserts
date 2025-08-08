@@ -6,11 +6,11 @@ public class GamePanel : Singleton<GamePanel>
 {
     public Slider hpSlider;
     public Slider expSlider;
-    public TMP_Text moneyCount;       // ½ð±Ò
-    public TMP_Text expCount;         // µÈ¼¶ LV.0
-    public TMP_Text hpCount;          // ÉúÃüÖµ 10/15
-    public TMP_Text countDown;        // ¹Ø¿¨µ¹¼ÆÊ± 15
-    public TMP_Text waveCount;        // µ±Ç°²¨´Î 15
+    public TMP_Text moneyCount;       // ï¿½ï¿½ï¿½
+    public TMP_Text expCount;         // ï¿½È¼ï¿½ LV.0
+    public TMP_Text hpCount;          // ï¿½ï¿½ï¿½ï¿½Öµ 10/15
+    public TMP_Text countDown;        // ï¿½Ø¿ï¿½ï¿½ï¿½ï¿½ï¿½Ê± 15
+    public TMP_Text waveCount;        // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ 15
 
     protected override void Awake()
     {
@@ -25,31 +25,31 @@ public class GamePanel : Singleton<GamePanel>
 
     private void Start()
     {
-        // ¸üÐÂ¾­ÑéÖµ
-        RenewExp();  // TEST ¾­ÑéÖµ
+        // ï¿½ï¿½ï¿½Â¾ï¿½ï¿½ï¿½Öµ
+        RenewExp();  // TEST ï¿½ï¿½ï¿½ï¿½Öµ
         
-        // ¸üÐÂÉúÃüÖµ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
         RenewHp();
         
-        // ¸üÐÂ½ð±Ò
+        // ï¿½ï¿½ï¿½Â½ï¿½ï¿½
         RenewMoney();
         
-        // ¸üÐÂ²¨´ÎÐÅÏ¢
+        // ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
         RenewWaveCount();
     }
 
     /// <summary>
-    /// ¸üÐÂ¾­ÑéÖµ UI
+    /// ï¿½ï¿½ï¿½Â¾ï¿½ï¿½ï¿½Öµ UI
     /// </summary>
-    public void RenewExp()   // TEST ¾­ÑéÖµ
+    public void RenewExp()   // TEST ï¿½ï¿½ï¿½ï¿½Öµ
     {
-        // 25, 12 2¼¶ ,1   1/12 = 0.1
+        // 25, 12 2ï¿½ï¿½ ,1   1/12 = 0.1
         expSlider.value = Player.Instance.exp % 12 / 12;
         expCount.text = "LV." + (int)(Player.Instance.exp / 12);
     }
 
     /// <summary>
-    /// ¸üÐÂÉúÃüÖµ UI
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ UI
     /// </summary>
     public void RenewHp()
     {
@@ -58,7 +58,7 @@ public class GamePanel : Singleton<GamePanel>
     }
     
     /// <summary>
-    /// ¸üÐÂ½ð±Ò UI
+    /// ï¿½ï¿½ï¿½Â½ï¿½ï¿½ UI
     /// </summary>
     public void RenewMoney()
     {
@@ -66,7 +66,7 @@ public class GamePanel : Singleton<GamePanel>
     }
 
     /// <summary>
-    /// ¸üÐÂµ¹¼ÆÊ±
+    /// ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½Ê±
     /// </summary>
     /// <param name="time"></param>
     public void RenewCountDown(float time)
@@ -75,10 +75,10 @@ public class GamePanel : Singleton<GamePanel>
     }
 
     /// <summary>
-    /// ¸üÐÂ²¨´Î
+    /// ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½
     /// </summary>
     public void RenewWaveCount()
     {
-        waveCount.text = "µÚ" + GameManager.Instance.currentWave.ToString() + "¹Ø";
+        waveCount.text = "ï¿½ï¿½" + GameManager.Instance.currentWave.ToString() + "ï¿½ï¿½";
     }
 }

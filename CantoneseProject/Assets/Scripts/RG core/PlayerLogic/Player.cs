@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -63,8 +62,10 @@ public class Player : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("jinbi?");
         if (other.CompareTag("Money"))   // ³Ô½ð±Ò
         {
+            Destroy(other.gameObject);
             money += 1;
             GamePanel.Instance.RenewMoney();
         }

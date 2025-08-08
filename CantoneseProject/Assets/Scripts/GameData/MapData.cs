@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]  // ÔÊÐíJSONÐòÁÐ»¯/·´ÐòÁÐ»¯
+[Serializable]  // ï¿½ï¿½ï¿½ï¿½JSONï¿½ï¿½ï¿½Ð»ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½
 public class MapData
 {
-    public int ID;                // µØÍ¼ID
-    public string name;           // UIÏÔÊ¾µÄÃû×Ö
-    public string mapSceneName;   // µØÍ¼³¡¾°Ãû×Ö     
-    public string mapPath;        // µØÍ¼Ô¤ÀÀÍ¼Â·¾¶
-    public string describe;       // µÐÈËÏêÇé
+    public int ID;                // ï¿½ï¿½Í¼ID
+    public string name;           // UIï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public string mapSceneName;   // ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½     
+    public string mapPath;        // ï¿½ï¿½Í¼Ô¤ï¿½ï¿½Í¼Â·ï¿½ï¿½
+    public string describe;       // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
