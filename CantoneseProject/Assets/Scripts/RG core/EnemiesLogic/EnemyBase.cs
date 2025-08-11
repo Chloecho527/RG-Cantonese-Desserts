@@ -10,11 +10,11 @@ public class EnemyBase : MonoBehaviour
 
     [Header("寻路")] 
     private GameObject player;
-    [SerializeField]private Seeker seeker;                                       // seeker组件
-    [SerializeField]private List<Vector3> pathPointList = new List<Vector3>();   // 路径点列表
-    [SerializeField]private int currentIndex = 0;                                // 路径点的索引
-    private float pathGenerateInterval = 0.5f;                                   // 每 0.5 秒生成一条路径
-    private float pathGenerateTimer = 0.5f;                                      // 计时器
+    [SerializeField]private Seeker seeker;                                        // seeker组件
+    [SerializeField]private List<Vector3> pathPointList = new List<Vector3>();    // 路径点列表
+    [SerializeField]private int currentIndex = 0;                                 // 路径点的索引
+    private float pathGenerateInterval = 0.5f;                                    // 每 0.5 秒生成一条路径
+    private float pathGenerateTimer = 0.5f;                                       // 计时器
     
     [Header("攻击属性")]
     public bool isContact = false;      // 是否接触玩家
@@ -27,9 +27,12 @@ public class EnemyBase : MonoBehaviour
     [Header("死亡属性")]
     public int provideExp = 1;              // 死亡后提供的经验值
     public GameObject money_prefab;         // 死亡掉落的金币
+
+    private Rigidbody2D rb;
     
     private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         money_prefab = Resources.Load<GameObject>("Money");
         seeker = GetComponent<Seeker>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -85,11 +88,34 @@ public class EnemyBase : MonoBehaviour
     private void GeneratePath(Vector3 target)
     {
         currentIndex = 0;
-        // 三个参数：起点、终点、回调函数
+        // // 三个参数：起点、终点、回调函数
+        // seeker.StartPath(transform.position, target, path =>
+        // {
+        //     pathPointList = path.vectorPath;   // TEST Path or path？
+        // });
         seeker.StartPath(transform.position, target, path =>
         {
-            // pathPointList = Path.vectorPath;
+            if (path.error)
+            {
+                // 路径计算失败时，清空列表并打印错误
+                pathPointList.Clear();
+                Debug.LogWarning("路径计算失败: " + path.errorLog); // 查看失败原因
+            }
+            else
+            {
+                // 路径计算成功，更新路径点（确保至少有2个点才有效）
+                if (path.vectorPath.Count >= 2)
+                {
+                    pathPointList = new List<Vector3>(path.vectorPath);
+                }
+                else
+                {
+                    pathPointList.Clear();
+                    Debug.LogWarning("路径点数量不足，无法移动");
+                }
+            }
         });
+        
     }
 
     private void AutoPath()
@@ -104,16 +130,19 @@ public class EnemyBase : MonoBehaviour
         {
             GeneratePath(player.transform.position);
             pathGenerateTimer = 0;   // 重置计时器
+            return;
         }
         
         // 当路径点列表为空时，进行路径计算
-        if (pathPointList == null || pathPointList.Count <= 0)
+        if (pathPointList.Count <= 0 && pathGenerateTimer > 0.1f)   // 0.1秒防抖动
         {
             GeneratePath((player.transform.position));
         }
         // 当怪物到达当前路径点时，递增索引currentIndex并进行路径计算
-        else if (currentIndex < pathPointList.Count)
+        else if (pathPointList.Count > 0)
         {
+            currentIndex = Mathf.Clamp(currentIndex, 0, pathPointList.Count - 1); // 限制索引
+            
             if (Vector2.Distance(transform.position, pathPointList[currentIndex]) < 0.1f)
             {
                 currentIndex++;
@@ -128,10 +157,24 @@ public class EnemyBase : MonoBehaviour
     
     public void EnemyMove()
     {
-        Vector2 direction =(Vector2)(Player.Instance.transform.position - this.transform.position).normalized;
-        transform.Translate((Vector3)(direction * speed * Time.deltaTime));
+        AutoPath();
+        
+        // 先判断路径列表是否有效，无效则直接返回
+        if (pathPointList == null || pathPointList.Count == 0)
+        {
+            return; // 没有路径时不执行移动逻辑，怪物不移动
+        }
+        
+        // 限制currentIndex不超出列表范围
+        currentIndex = Mathf.Clamp(currentIndex, 0, pathPointList.Count - 1);
+        
+        // Vector2 direction =(Vector2)(Player.Instance.transform.position - this.transform.position).normalized;
+        Vector2 direction = (pathPointList[currentIndex] -  transform.position).normalized;
+        rb.velocity = direction * speed;
+        // transform.Translate((Vector3)(direction * speed * Time.deltaTime));
         
         EnemyTurnAround();
+        
     }
     
     
@@ -148,7 +191,6 @@ public class EnemyBase : MonoBehaviour
         {
             // 怪物向左看
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x ), transform.localScale.y, transform.localScale.z);
-    
         }
     }
     
