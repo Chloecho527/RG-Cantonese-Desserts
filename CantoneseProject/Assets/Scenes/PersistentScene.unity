@@ -486,6 +486,11 @@ MonoBehaviour:
     mapSceneName: 
     mapPath: 
     describe: 
+    levels: []
+    mapDifficulty: 0
+    availableEnemies: []
+    mapThemeColor: {r: 0, g: 0, b: 0, a: 0}
+    backgroundMusic: 
   currentWave: 1
   roleDatas: []
   roleTextAsset: {fileID: 0}
