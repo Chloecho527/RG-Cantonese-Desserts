@@ -1,18 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// canvas: home到select 
+/// canvas: home 到 select 
 /// </summary>
 public class Home : MonoBehaviour
 {
+    [Header("canvas组件")]
     [SerializeField] private Canvas homeCanvas;
     [SerializeField] private Canvas selectCanvas;
     [SerializeField] private Canvas memoryCanvas;
 
+    [Header("button组件")]
     [SerializeField] private Button RGBtn;
     [SerializeField] private Button memoryBtn;
 
@@ -30,8 +29,6 @@ public class Home : MonoBehaviour
         // 注册按钮事件
         RGBtn.onClick.AddListener(OnRGBtnClicked);
         memoryBtn.onClick.AddListener(OnMemoryBtnClicked);
-
-
     }
 
     /// <summary>

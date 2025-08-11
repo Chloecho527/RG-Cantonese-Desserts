@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,16 +7,15 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
 
-    [Header("画布引用")]
+    [Header("canvas组件")]
     [SerializeField] private Canvas startCanvas;
     [SerializeField] private Canvas infoCanvas;
     [SerializeField] private Canvas homeCanvas;
     // [SerializeField] private Canvas characterCanvas;
     [SerializeField] private Canvas selectCanvas;
     // [SerializeField] private Canvas remindCanvas;
-
-
-    [Header("按钮引用")]
+    
+    [Header("button组件")]
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button exitButton;
 
@@ -27,14 +23,14 @@ public class Menu : MonoBehaviour
     {
         GameObject startCanvasObj = this.gameObject;
 
-        // 获取画布
+        // 获取canvas
         startCanvas = startCanvasObj.GetComponent<Canvas>();
         infoCanvas = GameObject.Find("Info Canvas").GetComponent<Canvas>();
         homeCanvas = GameObject.Find("Home Canvas").GetComponent<Canvas>();
         // characterCanvas = GameObject.Find("Character Canvas").GetComponent<Canvas>();
         selectCanvas = GameObject.Find("Select Canvas").GetComponent<Canvas>();
 
-        // 获取按钮
+        // 获取button
         newGameButton = startCanvasObj.transform.Find("NewGameBtn").GetComponent<Button>();
         exitButton = startCanvasObj.transform.Find("ExitBtn").GetComponent<Button>();
 

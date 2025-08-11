@@ -28,16 +28,6 @@ public class MapUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         
         avatar.sprite = Resources.Load<Sprite>(mapData.mapPath);
         
-        // //点击事件
-        // button.onClick.AddListener(() =>
-        // {
-        //     // 记录选择的地图
-        //     GameManager.Instance.currentMap = mapData;
-        //     
-        //     // 跳转到地图场景
-        //     // LoadManager.Instance.FadeAndLoadMap();
-        // });
-        
         // 点击事件：选择地图后加载对应场景
         button.onClick.AddListener(() =>
         {
@@ -48,26 +38,6 @@ public class MapUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             LoadManager.Instance.FadeAndLoadMap(mapData.mapSceneName);
         });
     }
-
-    // private void OnMapSelected()
-    // {
-    //     if (mapData == null) return;
-    //     
-    //     // 记录选择的地图
-    //     GameManager.Instance.currentMap = mapData;
-    //     
-    //     // 调用LoadManager加载地图场景，同时卸载菜单场景
-    //     LoadManager.Instance.FadeAndLoadMap(mapData.name);
-    //     
-    //     // 关闭地图选择面板（假设地图选择面板有CanvasGroup组件）
-    //     CanvasGroup mapCanvasGroup = GetComponentInParent<CanvasGroup>();
-    //     if (mapCanvasGroup != null)
-    //     {
-    //         mapCanvasGroup.alpha = 0;
-    //         mapCanvasGroup.blocksRaycasts = false;
-    //         mapCanvasGroup.interactable = false;
-    //     }
-    // }
 
     // 鼠标移入
     public void OnPointerEnter(PointerEventData eventData)

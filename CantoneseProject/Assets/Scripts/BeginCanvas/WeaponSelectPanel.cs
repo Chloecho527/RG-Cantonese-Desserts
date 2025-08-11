@@ -11,7 +11,7 @@ public class WeaponSelectPanel : Singleton<WeaponSelectPanel>
     public TextAsset weaponTextAsset;
     
     [Header("组件和物体")]
-    public Transform weaponList;                // 场景中的父物体RoleList
+    public Transform weaponList;             // 场景中的父物体RoleList
     public GameObject weaponPrefab;
     public CanvasGroup canvasGroup;
     public GameObject weaponDetails;
@@ -19,7 +19,6 @@ public class WeaponSelectPanel : Singleton<WeaponSelectPanel>
     
     [Header("用于鼠标滑入时角色信息更新的UI组件")]
     public TextMeshProUGUI weaponName;          // 武器名称
-
     public TextMeshProUGUI weaponType;          // 武器类型（近or远）
     public Image weaponIcon;                    // 武器图标
     public TextMeshProUGUI weaponDescribe;      // 武器属性
@@ -46,27 +45,12 @@ public class WeaponSelectPanel : Singleton<WeaponSelectPanel>
         weaponDetails = GameObject.Find("WeaponDetails");
     }
 
-    // private void Start()
-    // {
-    //     foreach (WeaponData weaponData in weaponDatas)
-    //     {
-    //         WeaponUI weaponUI = GameObject.Instantiate(weaponPrefab, weaponList).GetComponent<WeaponUI>();
-    //         weaponUI.SetData(weaponData);
-    //     }
-    // }
-
     /// <summary>
     /// 选择角色后仅显示专武
     /// </summary>
     /// <param name="rID"></param>
     public void FilterWeaponsByRole(int roleID)
     {
-        // // 清空现有武器UI(全武器)
-        // foreach (Transform child in weaponList)
-        // {
-        //     Destroy(child.gameObject);
-        // }
-
         // 筛选出当前角色的专武（roleID匹配的武器）
         List<WeaponData> roleWeapons = weaponDatas.FindAll(w => w.roleID == roleID);
 

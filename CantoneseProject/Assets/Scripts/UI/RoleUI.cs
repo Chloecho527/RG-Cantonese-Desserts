@@ -14,7 +14,7 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Awake()
     {
-        backImage = GetComponent<Image>();   // 选择按钮背景
+        backImage = GetComponent<Image>();                      // 选择按钮背景
         avatar = transform.GetChild(0).GetComponent<Image>();   // 选择按钮角色图像
         button = GetComponent<Button>();
     }
@@ -55,22 +55,21 @@ public class RoleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         // 通知武器选择面板，仅显示对应角色的专武
         WeaponSelectPanel.Instance.FilterWeaponsByRole(r.ID); 
 
-        // 关闭角色选择UI面板
+        // 关闭角色选择 UI面板
         RoleSelectPanel.Instance.canvasGroup.alpha = 0;
         RoleSelectPanel.Instance.canvasGroup.blocksRaycasts = false;
         RoleSelectPanel.Instance.canvasGroup.interactable = false;
 
-        // 克隆角色选择UI面板
+        // 克隆角色选择 UI面板
         GameObject go = Instantiate(RoleSelectPanel.Instance.roleDetails, WeaponSelectPanel.Instance.weaponContentTrans);
         go.transform.SetSiblingIndex(0);
         
-        // 打开武器选择UI面板
+        // 打开武器选择 UI面板
         WeaponSelectPanel.Instance.canvasGroup.alpha = 1;
         WeaponSelectPanel.Instance.canvasGroup.blocksRaycasts = true;
         WeaponSelectPanel.Instance.canvasGroup.interactable = true;
     }
-
-
+    
     // 鼠标移入
     public void OnPointerEnter(PointerEventData eventData)
     {

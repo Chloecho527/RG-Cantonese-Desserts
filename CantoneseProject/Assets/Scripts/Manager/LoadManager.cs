@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class LoadManager : Singleton<LoadManager>
 {
     [Header("转场设置")]
-    [SerializeField] private Canvas fadeCanvas; // 转场用的画布
-    [SerializeField] private Image transitionImage; // 转场用的图片
-    [SerializeField] private float fadeDuration = 0.5f; // 淡入淡出持续时间
+    [SerializeField] private Canvas fadeCanvas;           // 转场 fade canvas
+    [SerializeField] private Image transitionImage;       // 转场 canvas 的图片
+    [SerializeField] private float fadeDuration = 0.5f;   // 淡入淡出持续时间
 
-    private Color transparent = new Color(1, 1, 1, 0); // 完全透明
-    private Color opaque = new Color(1, 1, 1, 1); // 完全不透明
+    private Color transparent = new Color(1, 1, 1, 0);   // 完全透明
+    private Color opaque = new Color(1, 1, 1, 1);        // 完全不透明
 
     protected override void Awake()
     {
@@ -21,14 +21,14 @@ public class LoadManager : Singleton<LoadManager>
         if (fadeCanvas != null)
         {
             fadeCanvas.enabled = true;
-            fadeCanvas.worldCamera = Camera.main; // 确保UI可见
+            fadeCanvas.worldCamera = Camera.main;      // 确保UI可见
         }
 
         // 确保转场图片初始状态是透明的
         if (transitionImage != null)
         {
             transitionImage.color = transparent;
-            transitionImage.raycastTarget = false; // 初始不阻挡点击
+            transitionImage.raycastTarget = false;    // 初始不阻挡点击
         }
     }
 
@@ -53,24 +53,24 @@ public class LoadManager : Singleton<LoadManager>
     /// </summary>
     private IEnumerator FadeTransitionRoutine(Canvas currentCanvas, Canvas targetCanvas, string sceneToLoad)
     {
-        // 开始渐隐 - 显示转场图片
-        transitionImage.raycastTarget = true; // 阻挡点击
+        // 开始渐隐，显示转场图片
+        transitionImage.raycastTarget = true;   // 阻挡点击
         yield return StartCoroutine(FadeRoutine(transparent, opaque));
 
         // 处理画布切换
         if (currentCanvas != null)
-            ////// currentCanvas.enabled = false;
+        {
             currentCanvas.gameObject.SetActive(false);
+        }
 
         if (targetCanvas != null)
         {
             targetCanvas.gameObject.SetActive(true);
-            ////// targetCanvas.enabled = true;
         }
            
-        // 开始渐出 - 隐藏转场图片
+        // 开始渐出，隐藏转场图片
         yield return StartCoroutine(FadeRoutine(opaque, transparent));
-        transitionImage.raycastTarget = false; // 允许点击
+        transitionImage.raycastTarget = false;   // 允许点击
     }
 
     /// <summary>
@@ -78,7 +78,7 @@ public class LoadManager : Singleton<LoadManager>
     /// </summary>
     private IEnumerator FadeAndLoadSceneRoutine(string mapSceneName)
     {
-        // 开始渐隐 - 显示转场图片
+        // 开始渐隐，显示转场图片
         transitionImage.raycastTarget = true;
         yield return StartCoroutine(FadeRoutine(transparent, opaque));
         
@@ -96,7 +96,7 @@ public class LoadManager : Singleton<LoadManager>
         if (newScene.isLoaded)
             SceneManager.SetActiveScene(newScene);
 
-        // 开始渐出 - 隐藏转场图片
+        // 开始渐出，隐藏转场图片
         yield return StartCoroutine(FadeRoutine(opaque, transparent));
         transitionImage.raycastTarget = false;
     }
@@ -168,5 +168,4 @@ public class LoadManager : Singleton<LoadManager>
 
         transitionImage.color = endColor; // 确保最终状态正确
     }
-
 }

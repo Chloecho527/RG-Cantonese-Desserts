@@ -64,7 +64,8 @@ public class EnemyBase : MonoBehaviour
             }
         }
     }
-
+    
+    // 小怪接触攻击
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -73,10 +74,6 @@ public class EnemyBase : MonoBehaviour
         }
     }
     
-    /// <summary>
-    /// 小怪接触攻击
-    /// </summary>
-    /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player") && isLittleEnemy)
@@ -84,22 +81,20 @@ public class EnemyBase : MonoBehaviour
             isContact = false;
         }
     }
-
+    
+    
     private void GeneratePath(Vector3 target)
     {
         currentIndex = 0;
-        // // 三个参数：起点、终点、回调函数
-        // seeker.StartPath(transform.position, target, path =>
-        // {
-        //     pathPointList = path.vectorPath;   // TEST Path or path？
-        // });
+        
+        // 三个参数：起点、终点、回调函数
         seeker.StartPath(transform.position, target, path =>
         {
             if (path.error)
             {
                 // 路径计算失败时，清空列表并打印错误
                 pathPointList.Clear();
-                Debug.LogWarning("路径计算失败: " + path.errorLog); // 查看失败原因
+                Debug.LogWarning("路径计算失败: " + path.errorLog);
             }
             else
             {
@@ -120,12 +115,12 @@ public class EnemyBase : MonoBehaviour
 
     private void AutoPath()
     {
-        if(player == null)   // 玩家不能为空
+        if(player == null)
             return;
         
         pathGenerateTimer += Time.deltaTime;
         
-        // 间隔一定时间来获取路径点
+        // 间隔一定时间，获取路径点
         if (pathGenerateTimer >= pathGenerateInterval)
         {
             GeneratePath(player.transform.position);
@@ -133,15 +128,15 @@ public class EnemyBase : MonoBehaviour
             return;
         }
         
-        // 当路径点列表为空时，进行路径计算
-        if (pathPointList.Count <= 0 && pathGenerateTimer > 0.1f)   // 0.1秒防抖动
+        // 当路径点列表为空时，进行路径计算。0.1秒防抖动
+        if (pathPointList.Count <= 0 && pathGenerateTimer > 0.1f)
         {
             GeneratePath((player.transform.position));
         }
-        // 当怪物到达当前路径点时，递增索引currentIndex并进行路径计算
+        // 当怪物到达当前路径点时，递增索引 currentIndex 并进行路径计算
         else if (pathPointList.Count > 0)
         {
-            currentIndex = Mathf.Clamp(currentIndex, 0, pathPointList.Count - 1); // 限制索引
+            currentIndex = Mathf.Clamp(currentIndex, 0, pathPointList.Count - 1);    // 限制索引
             
             if (Vector2.Distance(transform.position, pathPointList[currentIndex]) < 0.1f)
             {
@@ -177,7 +172,7 @@ public class EnemyBase : MonoBehaviour
         
     }
     
-    
+    // sprite翻转
     public void EnemyTurnAround()
     {
         // 玩家在怪物右边
@@ -194,7 +189,7 @@ public class EnemyBase : MonoBehaviour
         }
     }
     
-    
+    // 怪物攻击
     public void EnemyAttack()
     {
         // 处于冷却期间

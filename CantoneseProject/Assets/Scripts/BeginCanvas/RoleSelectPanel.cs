@@ -1,5 +1,4 @@
 using Newtonsoft.Json;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,7 +11,7 @@ public class RoleSelectPanel : Singleton<RoleSelectPanel>
     public TextAsset roleTextAsset;
 
     [Header("组件和物体")]
-    public Transform roleList;   // 场景中的父物体RoleList
+    public Transform roleList;           // 场景中的父物体RoleList
     public GameObject rolePrefab;
     public CanvasGroup canvasGroup;
     public GameObject roleDetails;

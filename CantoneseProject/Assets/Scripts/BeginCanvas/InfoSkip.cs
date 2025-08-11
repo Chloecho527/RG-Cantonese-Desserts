@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +6,11 @@ using UnityEngine.UI;
 /// </summary>
 public class InfoSkip : MonoBehaviour
 {
+    [Header("canvas组件")]
     [SerializeField] private Canvas infoCanvas;
     [SerializeField] private Canvas homeCanvas;
 
+    [Header("button组件")]
     [SerializeField] private Button skipBtn;
 
 

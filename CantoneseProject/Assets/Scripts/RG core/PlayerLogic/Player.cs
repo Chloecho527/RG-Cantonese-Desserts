@@ -35,15 +35,6 @@ public class Player : MonoBehaviour
                 anim.runtimeAnimatorController = controller;
             }
         }
-        // if (GameManager.Instance.currentRole != null)
-        // {
-        //     string controllerPath = "Animations/" + GameManager.Instance.currentRole.ID + "_Controller";
-        //     RuntimeAnimatorController controller = Resources.Load<RuntimeAnimatorController>(controllerPath);
-        //     if (controller != null)
-        //     {
-        //         anim.runtimeAnimatorController = controller;
-        //     }
-        // }
     }
 
     private void Update()
@@ -56,10 +47,7 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    /// <summary>
-    /// 吃金币
-    /// </summary>
-    /// <param name="other"></param>
+    // 吃金币
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("jinbi?");
@@ -71,9 +59,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// wasd 移动
-    /// </summary>
+    // wasd移动
     public void Move()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");  // 1 或 -1
@@ -97,13 +83,9 @@ public class Player : MonoBehaviour
         }
     
         TurnAround(moveHorizontal);
-        //Debug.Log(playerSpriteTrans.localScale.x);
     }
     
-    /// <summary>
-    /// sprite翻转
-    /// </summary>
-    /// <param name="h"></param>
+    // sprite翻转
     public void TurnAround(float h)
     {
         if (h < 0)        //  TEST localScale暂时为 5，后续调整
