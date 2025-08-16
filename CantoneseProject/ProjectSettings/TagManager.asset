@@ -14,8 +14,8 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - 
-  - 
+  - Map
+  - Enemy
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: enemy
     uniqueID: 1757840283
+    locked: 0
+  - name: forwardBuilding
+    uniqueID: 803070801
     locked: 0
   - name: effect
     uniqueID: 1446407849

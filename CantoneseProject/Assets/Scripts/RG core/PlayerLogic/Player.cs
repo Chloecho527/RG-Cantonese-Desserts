@@ -134,6 +134,8 @@ public class Player : MonoBehaviour
         anim.speed = 0f;
         
         // 调用游戏失败函数
-        LevelController.Instance.FailGame();
+        //LevelController.Instance.FailGame();
+        // TODO 
+        WaveManager.Instance.FailGame();
     }
 }

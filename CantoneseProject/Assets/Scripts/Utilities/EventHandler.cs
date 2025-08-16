@@ -16,5 +16,11 @@ public static class EventHandler
     }
 
 
+    public static event Action<EnemyBase> EnemyDiedEvent;
+    public static void CallEnemyDiedEvent(EnemyBase e)
+    {
+        EnemyDiedEvent?.Invoke(e);
+    }
+
 
 }

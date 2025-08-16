@@ -1,0 +1,37 @@
+[
+    {
+        "ID": 1,
+        "name": "红豆怪",
+        "prefabPath": "Prefabs/Enemy_1_ReaBean"
+    },
+    {
+        "ID": 2,
+        "name": "绿豆怪",
+        "prefabPath": "Prefabs/Enemy_1_GreenBean"
+    },
+    {
+        "ID": 3,
+        "name": "西米潜行者",
+        "prefabPath": "Prefabs/Enemy_1_XiMi"
+    },
+    {
+        "ID": 4,
+        "name": "芝麻散兵",
+        "prefabPath": "Prefabs/Enemy_1_ZhiMa"
+    },
+    {
+        "ID": 5,
+        "name": "精英·糯米年糕妖",
+        "prefabPath": "Prefabs/Enemy_1_NianGao"
+    },
+    {
+        "ID": 6,
+        "name": "精英·薏米祭司",
+        "prefabPath": "Prefabs/Enemy_1_YiMiJiSi"
+    },
+    {
+        "ID": 7,
+        "name": "Boss·芸豆巨像",
+        "prefabPath": "Prefabs/Enemy_1_YunDouJuXiang"
+    }
+]

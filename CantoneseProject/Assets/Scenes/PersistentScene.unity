@@ -494,6 +494,12 @@ MonoBehaviour:
   currentWave: 1
   roleDatas: []
   roleTextAsset: {fileID: 0}
+  enemyDatas:
+  - ID: 0
+    name: 
+    enemyType: 0
+    prefabPath: 
+  enemyTextAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

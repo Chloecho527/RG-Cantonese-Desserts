@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class LevelController : Singleton<LevelController>
 {
-    public float waveTimer;             // 计时器
+    // public float waveTimer;             // 计时器
     public GameObject successPanel;     // 通关面板
     public GameObject failPanel;        // 死亡面板
 
 
-    private void Awake()
+    protected override void Awake()
     {
         successPanel = GameObject.Find("SuccessPanel");
         failPanel = GameObject.Find("FailPanel");
@@ -15,23 +15,23 @@ public class LevelController : Singleton<LevelController>
 
     private void Start()
     {
-        waveTimer = 15 + 5 * GameManager.Instance.currentWave;
+        // waveTimer = 15 + 5 * GameManager.Instance.currentWave;
     }
 
     private void Update()
     {
-        if (waveTimer > 0)
-        {
-            waveTimer -= Time.deltaTime;
-            
-            if (waveTimer <= 0)
-            {
-                waveTimer = 0;
-                SuccessGame();
-            }
-        }
-
-        GamePanel.Instance.RenewCountDown(waveTimer);
+        // if (waveTimer > 0)
+        // {
+        //     waveTimer -= Time.deltaTime;
+        //     
+        //     if (waveTimer <= 0)
+        //     {
+        //         waveTimer = 0;
+        //         SuccessGame();
+        //     }
+        // }
+        //
+        // GamePanel.Instance.RenewCountDown(waveTimer);
     }
     
     

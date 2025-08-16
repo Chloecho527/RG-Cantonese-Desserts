@@ -9,8 +9,8 @@ public class GamePanel : Singleton<GamePanel>
     public TMP_Text moneyCount;       // 金币
     public TMP_Text expCount;         // 等级 LV.0
     public TMP_Text hpCount;          // 生命值 10/15
-    public TMP_Text countDown;        // 关卡倒计时
-    public TMP_Text waveCount;        // 波次 15
+    // public TMP_Text countDown;     // 关卡倒计时
+    public TMP_Text waveCount;        // 波次 5
 
     protected override void Awake()
     {
@@ -19,7 +19,7 @@ public class GamePanel : Singleton<GamePanel>
         moneyCount = GameObject.Find("MoneyCount").GetComponent<TMP_Text>();
         expCount = GameObject.Find("ExpCount").GetComponent<TMP_Text>();
         hpCount = GameObject.Find("HpCount").GetComponent<TMP_Text>();
-        countDown = GameObject.Find("CountDown").GetComponent<TMP_Text>();
+        // countDown = GameObject.Find("CountDown").GetComponent<TMP_Text>();
         waveCount = GameObject.Find("WaveCount").GetComponent<TMP_Text>();
     }
 
@@ -65,14 +65,11 @@ public class GamePanel : Singleton<GamePanel>
         moneyCount.text = Player.Instance.money.ToString();
     }
 
-    /// <summary>
-    /// 更新倒计时
-    /// </summary>
-    /// <param name="time"></param>
-    public void RenewCountDown(float time)
-    {
-        countDown.text = time.ToString("F0");
-    }
+    // // 更新倒计时
+    // public void RenewCountDown(float time)
+    // {
+    //     countDown.text = time.ToString("F0");
+    // }
 
     /// <summary>
     /// 更新波次

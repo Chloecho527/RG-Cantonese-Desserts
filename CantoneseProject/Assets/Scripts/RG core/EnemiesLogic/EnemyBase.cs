@@ -22,7 +22,7 @@ public class EnemyBase : MonoBehaviour
     public float damage;                // 攻击力
     public float attackTime;            // 攻击间隔时长
     public float atkTimer = 0;          // 攻击计时器
-    public bool isLittleEnemy;          // 是否为接触式攻击的小怪
+    // public bool isLittleEnemy;          // 是否为接触式攻击的小怪
     
     [Header("死亡属性")]
     public int provideExp = 1;              // 死亡后提供的经验值
@@ -76,7 +76,7 @@ public class EnemyBase : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && isLittleEnemy)
+        if (other.CompareTag("Player"))
         {
             isContact = false;
         }
@@ -234,6 +234,9 @@ public class EnemyBase : MonoBehaviour
         
         // 掉落物
         Instantiate(money_prefab, transform.position, Quaternion.identity);
+        
+        // 广播敌人死亡（用于统计在场数量）
+        EventHandler.CallEnemyDiedEvent(this);
         
         // 销毁自身
         Destroy(gameObject);
