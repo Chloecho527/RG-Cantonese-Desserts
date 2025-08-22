@@ -12,10 +12,10 @@ public class WaveManager : Singleton<WaveManager>
 	private class Wave { public bool isBoss; public List<SubWave> subs = new(); }                     // 波次（共5波）
 
 	[Header("地图边界")]
-	[SerializeField] private float mapMinX = -10f;  // 地图左边界
+	[SerializeField] private float mapMinX = -10f;  // 地图左边界  TODO 后续修改
 	[SerializeField] private float mapMaxX = 10f;   // 地图右边界
-	[SerializeField] private float mapMinY = -5f;  // 地图下边界
-	[SerializeField] private float mapMaxY = 5f;   // 地图上边界
+	[SerializeField] private float mapMinY = -5f;   // 地图下边界
+	[SerializeField] private float mapMaxY = 5f;    // 地图上边界
 	
 	[Header("canvas和组件")]
 	[SerializeField] private GameObject successPanel;	// 胜利面板
@@ -26,7 +26,7 @@ public class WaveManager : Singleton<WaveManager>
 	private readonly List<Wave> waves = new();   // readonly表示列表初始化后不能再指向新的列表对象，但可以修改列表内容（添加 / 移除元素）。
 	
 	[Header("关卡波次状态")]
-	[SerializeField]private int waveIndex = 0;        // 波次索引    // 0-based: 0..4
+	[SerializeField]private int waveIndex = 0;        // 波次索引    0-based: 0..4
 	[SerializeField]private int subIndex = 0;         // 子波次索引
 	[SerializeField]private int aliveCount = 0;       // 怪物当前存活数量，用于判断次波次是否结束
 	[SerializeField]private int pendingToSpawn = 0;   // 记录当前波次中尚未生成的敌人数量，用于控制生成节奏

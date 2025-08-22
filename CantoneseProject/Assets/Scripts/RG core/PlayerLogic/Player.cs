@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                anim.SetBool("isMove", false); 
+                anim.SetBool("isMove", false);
             }
         }
     

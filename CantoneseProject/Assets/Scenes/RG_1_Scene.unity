@@ -579,14 +579,13 @@ GameObject:
   m_Component:
   - component: {fileID: 117203708}
   - component: {fileID: 117203710}
-  - component: {fileID: 117203711}
   m_Layer: 0
   m_Name: P1_weapon_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &117203708
 Transform:
   m_ObjectHideFlags: 0
@@ -595,13 +594,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117203707}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.11831733, w: 0.99297583}
-  m_LocalPosition: {x: -0.74, y: 0.14, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalRotation: {x: -0, y: -0, z: 0.35886937, w: 0.9333878}
+  m_LocalPosition: {x: -0.29, y: -0.72, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1298596159}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.59}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 42.062}
 --- !u!212 &117203710
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -654,27 +653,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &117203711
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117203707}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4f00b412ef82e9c4f8cfa907289eb1c2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &147389997
 GameObject:
   m_ObjectHideFlags: 0
@@ -8311,6 +8289,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc1e5ba559a90747bc9cb373e43e301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapMinX: -10
+  mapMaxX: 10
+  mapMinY: -5
+  mapMaxY: 5
   successPanel: {fileID: 0}
   shopPanel: {fileID: 0}
   failPanel: {fileID: 0}
