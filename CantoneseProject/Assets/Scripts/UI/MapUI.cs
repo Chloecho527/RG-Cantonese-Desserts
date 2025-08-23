@@ -33,7 +33,7 @@ public class MapUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             // 记录选择的地图
             GameManager.Instance.currentMap = mapData;
-            Debug.Log("当前地图：" + mapData.mapSceneName);
+            Debug.LogWarning("当前地图：" + mapData.mapSceneName);
             // 调用LoadManager加载地图场景，传入场景名称
             LoadManager.Instance.FadeAndLoadMap(mapData.mapSceneName);
         });

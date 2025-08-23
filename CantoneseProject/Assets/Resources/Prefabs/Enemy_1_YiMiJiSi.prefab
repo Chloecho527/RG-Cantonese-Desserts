@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2030758400231049716}
   - component: {fileID: 4338352263262969590}
   - component: {fileID: 943053442471171743}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_1_YiMiJiSi
   m_TagString: Enemy
   m_Icon: {fileID: 0}

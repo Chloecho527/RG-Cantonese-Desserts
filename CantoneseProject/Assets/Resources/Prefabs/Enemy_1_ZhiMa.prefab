@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7229035419859818162}
   - component: {fileID: 1999072582200454116}
   - component: {fileID: 1645467845954812812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_1_ZhiMa
   m_TagString: Enemy
   m_Icon: {fileID: 0}

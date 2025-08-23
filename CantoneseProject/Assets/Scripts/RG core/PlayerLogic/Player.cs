@@ -12,8 +12,10 @@ public class Player : MonoBehaviour
     
     [Header("状态")]
     public bool isDead = false;      // 是否死亡
-    
-    [Header("脚本组件获取")]
+
+    [Header("脚本组件获取")] 
+    private Rigidbody2D rb;
+    public Vector2 mousePos;               // 鼠标方向
     public Animator anim;                  // 动画机
     public Transform playerSpriteTrans;    // 角色sprite位置
     public int money = 30;                 // 当前金币
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour
     {
         Instance = this;
         
+        rb = GetComponent<Rigidbody2D>();
         playerSpriteTrans = GameObject.Find("PlayerSprite").transform;
         anim = playerSpriteTrans.GetComponent<Animator>();
         
@@ -33,6 +36,22 @@ public class Player : MonoBehaviour
             if (controller != null)
             {
                 anim.runtimeAnimatorController = controller;
+            }
+        }
+        
+        // 激活玩家选择的武器子物体
+        if (GameManager.Instance.currentWeapon != null)
+        {
+            string weaponName = "Weapon_" + GameManager.Instance.currentWeapon.ID;
+            Debug.LogWarning("选择武器：" + weaponName);
+            Transform weaponTrans = transform.Find(weaponName);
+            if (weaponTrans != null)
+            {
+                weaponTrans.gameObject.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning($"未找到名为{weaponName}的武器子物体");
             }
         }
     }
@@ -50,7 +69,6 @@ public class Player : MonoBehaviour
     // 吃金币
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("jinbi?");
         if (other.CompareTag("Money"))   // 吃金币
         {
             Destroy(other.gameObject);
@@ -66,11 +84,13 @@ public class Player : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        movement.Normalize();
-        transform.Translate(movement * speed * Time.deltaTime);
+        rb.velocity = movement.normalized * speed;
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
-        // 动画机，判断角色是否移动
-        if (anim != null)
+        //movement.Normalize();
+        //transform.Translate(movement * speed * Time.deltaTime);
+        
+        if (anim != null)   // 动画机，判断角色是否移动
         {
             if (movement.magnitude != 0 )
             {
@@ -82,21 +102,18 @@ public class Player : MonoBehaviour
             }
         }
     
-        TurnAround(moveHorizontal);
+        if (mousePos.x > transform.position.x)   // 根据鼠标方向决定人物sprite朝向
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+        }
+        
+        //TurnAround(moveHorizontal);
     }
     
-    // sprite翻转
-    public void TurnAround(float h)
-    {
-        if (h < 0)        //  TEST localScale暂时为 5，后续调整
-        {
-            playerSpriteTrans.localScale = new Vector3(-5, playerSpriteTrans.localScale.y, playerSpriteTrans.localScale.z);
-        }
-        else if (h > 0)   //  TEST localScale暂时为 5，后续调整
-        {
-            playerSpriteTrans.localScale = new Vector3(5, playerSpriteTrans.localScale.y, playerSpriteTrans.localScale.z);
-        }
-    }
     
     // TODO 攻击
     public void PlayerAttack()
@@ -138,4 +155,25 @@ public class Player : MonoBehaviour
         // TODO 
         WaveManager.Instance.FailGame();
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // // sprite翻转
+    // public void TurnAround(float h)
+    // {
+    //     if (h < 0)        //  TEST localScale暂时为 5，后续调整
+    //     {
+    //         playerSpriteTrans.localScale = new Vector3(-5, playerSpriteTrans.localScale.y, playerSpriteTrans.localScale.z);
+    //     }
+    //     else if (h > 0)   //  TEST localScale暂时为 5，后续调整
+    //     {
+    //         playerSpriteTrans.localScale = new Vector3(5, playerSpriteTrans.localScale.y, playerSpriteTrans.localScale.z);
+    //     }
+    // }
 }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7188960889139528776}
   - component: {fileID: 8192149511562194219}
   - component: {fileID: 8787281196799764200}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_1_NianGao
   m_TagString: Enemy
   m_Icon: {fileID: 0}

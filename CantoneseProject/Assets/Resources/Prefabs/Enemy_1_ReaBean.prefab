@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7238992496839074855}
   - component: {fileID: 3672672666764731027}
   - component: {fileID: 3772391372894039961}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_1_ReaBean
   m_TagString: Enemy
   m_Icon: {fileID: 0}

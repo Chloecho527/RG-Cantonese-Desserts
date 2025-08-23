@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6400333649197643183}
   - component: {fileID: 702323506782055109}
   - component: {fileID: 3178298356549815736}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_1_GreenBean
   m_TagString: Enemy
   m_Icon: {fileID: 0}
